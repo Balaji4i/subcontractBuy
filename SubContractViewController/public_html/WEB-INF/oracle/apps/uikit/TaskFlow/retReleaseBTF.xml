@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="retReleaseBTF">
+    <default-activity id="__37">refreshRetention</default-activity>
+    <transaction id="__40">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">RetRelease</managed-bean-name>
+      <managed-bean-class id="__2">backing.RetReleaseClass</managed-bean-class>
+      <managed-bean-scope id="__1">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="retReleaseInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/retReleaseInfo.jsff</page>
+    </view>
+    <task-flow-return id="save">
+      <outcome id="__38">
+        <name>save</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome id="__39">
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewButtonRetention'}</expression>
+        <outcome id="__20">buttonAdd</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='EditRetention'}</expression>
+        <outcome id="__26">edit</outcome>
+      </case>
+      <default-outcome>buttonAdd</default-outcome>
+    </router>
+    <method-call id="refreshRetention">
+      <method>#{bindings.refreshRetention.execute}</method>
+      <outcome id="__27">
+        <fixed-outcome>refreshRetention</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__34">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__41">
+      <from-activity-id id="__42">retReleaseInfo</from-activity-id>
+      <control-flow-case id="__43">
+        <from-outcome id="__45">save</from-outcome>
+        <to-activity-id id="__44">save</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__46">
+        <from-outcome id="__48">cancel</from-outcome>
+        <to-activity-id id="__47">cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">CreateInsert</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">CreateInsert</from-outcome>
+        <to-activity-id id="__9">retReleaseInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">router1</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__16">buttonAdd</from-outcome>
+        <to-activity-id id="__14">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">edit</from-outcome>
+        <to-activity-id id="__17">ExecuteWithParams1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">refreshRetention</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome id="__32">refreshRetention</from-outcome>
+        <to-activity-id id="__31">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__35">
+      <from-activity-id id="__36">ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome id="__50">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__51">retReleaseInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

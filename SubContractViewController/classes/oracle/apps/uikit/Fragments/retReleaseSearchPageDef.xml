@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="retReleaseSearchPageDef"
+                Package="oracle.apps.uikit.Fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="searchRetReleaseROVO1" RangeSize="25"
+              DataControl="retReleaseAMDataControl"
+              id="searchRetReleaseROVO1Iterator"/>
+    <searchRegion Criteria="SearchRetRelease"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="searchRetReleaseROVO1Iterator"
+                  id="SearchRetReleaseQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="searchRetReleaseROVO1Iterator"
+          id="searchRetReleaseROVO1">
+      <nodeDefinition DefName="ROVO.searchRetReleaseROVO"
+                      Name="searchRetReleaseROVO10">
+        <AttrNames>
+          <Item Value="RetRelHeaderId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="RetRelNumber"/>
+          <Item Value="ContractNum"/>
+          <Item Value="ContractName"/>
+          <Item Value="RetRelDate"/>
+          <Item Value="RetRelType"/>
+          <Item Value="RetRelAmt"/>
+          <Item Value="RetRelStatusDisp"/>
+          <Item Value="ApprovalStatusDisp"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="searchRetReleaseROVO1Iterator"
+                     id="RetRelHeaderId">
+      <AttrNames>
+        <Item Value="RetRelHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

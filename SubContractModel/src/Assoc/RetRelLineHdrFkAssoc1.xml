@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RetRelLineHdrFkAssoc1"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="XxscRetReleaseHeadersEO"
+    Cardinality="1"
+    Source="true"
+    Owner="entity.XxscRetReleaseHeadersEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XxscRetReleaseHeadersEO"/>
+      <Attr Name="_foreignKey"
+        Value="entity.XxscRetReleaseHeadersEO.XxscRetReleaseHeadersPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxscRetReleaseHeadersEO.RetRelHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="XxscRetReleaseLinesEO"
+    Cardinality="-1"
+    Owner="entity.XxscRetReleaseLinesEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XxscRetReleaseLinesEO"/>
+      <Attr Name="_foreignKey"
+        Value="entity.XxscRetReleaseLinesEO.RetRelLineHdrFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxscRetReleaseLinesEO.RetRelHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

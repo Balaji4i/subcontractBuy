@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <p>
+     
+  </p>
+  <p>
+     
+  </p>
+  <p>
+     
+  </p>
+  <af:panelHeader text="Consolidated Report" id="ph1"
+                  inlineStyle="background-color:White;">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:spacer width="10" height="10" id="s8"/>
+    <af:panelFormLayout id="pfl1" inlineStyle="background-color:Window;">
+      <f:facet name="footer"/>
+      <af:spacer width="10" height="10" id="s9"/>
+      <af:panelGroupLayout layout="scroll"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl1">
+        <af:spacer width="10" height="10" id="s14"/>
+        <af:inputListOfValues id="buNameTransId"
+                              popupTitle="Search and Select: #{bindings.BuNameTrans.hints.label}"
+                              value="#{bindings.BuNameTrans.inputValue}"
+                              label="Business Unit"
+                              model="#{bindings.BuNameTrans.listOfValuesModel}"
+                              required="#{bindings.BuNameTrans.hints.mandatory}"
+                              columns="#{bindings.BuNameTrans.hints.displayWidth}"
+                              shortDesc="#{bindings.BuNameTrans.hints.tooltip}"
+                              binding="#{backingBeanScope.ConsolidateReport.buid}"
+                              contentStyle="width:180px"
+                              autoSubmit="true" showRequired="true"
+                              valueChangeListener="#{backingBeanScope.ConsolidateReport.buName}">
+          <f:validator binding="#{bindings.BuNameTrans.validator}"/>
+        </af:inputListOfValues>
+        <af:spacer width="10" height="10" id="s3"/>
+        <af:inputListOfValues id="vendorNameTrans1Id"
+                              popupTitle="Search and Select: #{bindings.vendorNameTrans1.hints.label}"
+                              value="#{bindings.vendorNameTrans1.inputValue}"
+                              label="Supplier Name"
+                              model="#{bindings.vendorNameTrans1.listOfValuesModel}"
+                              required="#{bindings.vendorNameTrans1.hints.mandatory}"
+                              columns="#{bindings.vendorNameTrans1.hints.displayWidth}"
+                              shortDesc="#{bindings.vendorNameTrans1.hints.tooltip}"
+                              showRequired="false" autoSubmit="true"
+                              binding="#{backingBeanScope.ConsolidateReport.supplierid}"
+                              contentStyle="width:180px"
+                              valueChangeListener="#{backingBeanScope.ConsolidateReport.supplName}">
+          <f:validator binding="#{bindings.vendorNameTrans1.validator}"/>
+        </af:inputListOfValues>
+        <af:spacer width="10" height="10" id="s2"/>
+        <af:inputListOfValues id="projectNumTransId"
+                              popupTitle="Search and Select: #{bindings.projectNumTrans.hints.label}"
+                              value="#{bindings.projectNumTrans.inputValue}"
+                              label="Project Number"
+                              model="#{bindings.projectNumTrans.listOfValuesModel}"
+                              required="#{bindings.projectNumTrans.hints.mandatory}"
+                              columns="#{bindings.projectNumTrans.hints.displayWidth}"
+                              shortDesc="#{bindings.projectNumTrans.hints.tooltip}"
+                              autoSubmit="true"
+                              binding="#{backingBeanScope.ConsolidateReport.prjnumber}"
+                              valueChangeListener="#{backingBeanScope.ConsolidateReport.projectNum}">
+          <f:validator binding="#{bindings.projectNumTrans.validator}"/>
+        </af:inputListOfValues>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:inputListOfValues id="contractNum1Id"
+                              popupTitle="Search and Select: #{bindings.ContractNum1.hints.label}"
+                              value="#{bindings.ContractNum1.inputValue}"
+                              label="Contract Number"
+                              model="#{bindings.ContractNum1.listOfValuesModel}"
+                              required="#{bindings.ContractNum1.hints.mandatory}"
+                              columns="#{bindings.ContractNum1.hints.displayWidth}"
+                              shortDesc="#{bindings.ContractNum1.hints.tooltip}"
+                              partialTriggers="projectNumTransId" autoSubmit="true"
+                        valueChangeListener="#{backingBeanScope.ConsolidateReport.contractNum}"
+                        binding="#{backingBeanScope.ConsolidateReport.contnumber}">
+          <f:validator binding="#{bindings.ContractNum1.validator}"/>
+        </af:inputListOfValues>
+        <!--<af:selectOneChoice value="#{bindings.ContractNum.inputValue}"
+                        label="Conract Number"
+                        required="#{bindings.ContractNum.hints.mandatory}"
+                        shortDesc="#{bindings.ContractNum.hints.tooltip}"
+                        id="soc1" autoSubmit="true"
+                        partialTriggers="projectNumTransId"
+                        valueChangeListener="#{backingBeanScope.ConsolidateReport.contractNum}"
+                        binding="#{backingBeanScope.ConsolidateReport.contnumber}">
+      <f:selectItems value="#{bindings.ContractNum.items}" id="si1"/>
+    </af:selectOneChoice>-->
+        <af:spacer width="10" height="10" id="s15"/>
+        <af:panelGroupLayout id="pgl2">
+          <af:spacer width="10" height="10" id="s10"/>
+          <af:spacer width="10" height="10" id="s11"/>
+          <af:spacer width="10" height="10" id="s12"/>
+          <af:spacer width="10" height="10" id="s13"/>
+          <af:goButton text="Excel" id="gb1"
+                       destination="#{pageFlowScope.exceldownload}"                  
+                       icon="/images/filedownload_ovr.png"
+                       partialTriggers="buNameTransId vendorNameTrans1Id contractNum1Id projectNumTransId"/>
+          <af:spacer width="10" height="10" id="s5"/>
+          <af:spacer width="10" height="10" id="s6"/>
+        </af:panelGroupLayout>
+        <!--<af:goImageLink text="gotoexcel" id="gil1"
+                        destination="#{pageFlowScope.exceldownload}"
+                        targetFrame="_blank"/>-->
+        <af:spacer width="10" height="10" id="s1"/>
+        <!--<af:commandButton text="excel download" id="cb1">
+          <af:fileDownloadActionListener contentType="consreport/xls"
+                                         filename="consreport.xls"
+                                         method="#{backingBeanScope.ConsolidateReport.reportexceldownloading}"/>
+        </af:commandButton>-->
+      </af:panelGroupLayout>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<workbook id="b9ffea0a-e2fe-464b-8c87-0b87efe5c98f" schema-version="1" xmlns="http://xmlns.oracle.com/adf/desktopintegration/workbook">
+  <!--source-document="Sell_Contract_Upload_Lines.xlsx" client-version="11.1.1.7.5.12386"-->
+  <remote-servlet-path>/adfdiRemoteServlet</remote-servlet-path>
+  <web-app-root>http://127.0.0.1:7101/SubContractModule_new-SubContractViewController-context-root</web-app-root>
+  <application-home-folder></application-home-folder>
+  <web-pages-folder></web-pages-folder>
+  <runtime-ribbon-tab>
+    <title>MyWorkbook</title>
+    <command-list>
+      <command method="Login" />
+      <command method="Logout" />
+      <command method="ClearAllData" />
+      <command method="EditOptions" />
+      <command method="ViewAboutDialog" />
+      <command method="ToggleStatusViewer" />
+    </command-list>
+  </runtime-ribbon-tab>
+  <parameter-list>
+    <parameter>
+      <id>conNum</id>
+      <annotation>con Num</annotation>
+    </parameter>
+  </parameter-list>
+  <worksheet-list>
+    <worksheet name="Sheet1">
+      <ribbon-command-list>
+        <ribbon-command id="MEN2114110958">
+          <select-action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB456386562</component-id>
+                <action>Download</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>Download Contract Lines</label>
+          <image>Download</image>
+        </ribbon-command>
+        <ribbon-command id="MEN645089423">
+          <select-action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB456386562</component-id>
+                <action>Upload</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>Save Contract Lines</label>
+          <image>Upload</image>
+        </ribbon-command>
+      </ribbon-command-list>
+      <pagedef-usage-id>subcontract_view_SellConUploadLinesPageDef</pagedef-usage-id>
+      <parameter-list>
+        <parameter>
+          <value>#{workbook.params.conNum}</value>
+          <pagedef-param-id>conNum</pagedef-param-id>
+          <annotation>con Num</annotation>
+        </parameter>
+      </parameter-list>
+      <component-list>
+        <table-component id="TAB456386562" origin="A1">
+          <tree-id>XxstgSellContractLines_VO1</tree-id>
+          <column-list>
+            <column id="_ADF_ChangedColumn">
+              <update-component>
+                <output-text />
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres['COMPONENTS_TABLE_CHANGED_COL_LABEL']}</header-label>
+              <cell-style>Indicator Cell</cell-style>
+            </column>
+            <column id="_ADF_StatusColumn">
+              <update-component>
+                <output-text>
+                  <double-click-action-set>
+                    <status enabled="false" />
+                    <action-list>
+                      <component-action>
+                        <component-id>TAB456386562</component-id>
+                        <action>DisplayRowErrors</action>
+                      </component-action>
+                    </action-list>
+                  </double-click-action-set>
+                </output-text>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres['COMPONENTS_TABLE_STATUS_COL_LABEL']}</header-label>
+              <cell-style>Status Cell</cell-style>
+            </column>
+            <column id="ContractNumber">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.ContractNumber.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.ContractNumber.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Contract Number</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.ContractNumber.tooltip}</tooltip>
+            </column>
+            <column id="LineNumber">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.LineNumber.inputValue}</value>
+                  <read-only>True</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>_ADFDI_TableCellROStyle</header-style>
+              <header-label>Line Number</header-label>
+              <cell-style>_ADFDI_TableCellROStyle</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.LineNumber.tooltip}</tooltip>
+            </column>
+            <column id="LineDescription">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.LineDescription.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.LineDescription.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Line Description</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.LineDescription.tooltip}</tooltip>
+            </column>
+            <column id="LineType">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.LineType.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.LineType.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Line Type</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.LineType.tooltip}</tooltip>
+            </column>
+            <column id="ItemName">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.ItemName.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.ItemName.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Item Name</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.ItemName.tooltip}</tooltip>
+            </column>
+            <column id="ItemDescription">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.ItemDescription.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.ItemDescription.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Item Description</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.ItemDescription.tooltip}</tooltip>
+            </column>
+            <column id="LineName">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.LineName.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.LineName.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Line Name</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.LineName.tooltip}</tooltip>
+            </column>
+            <column id="NumOfItem">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.NumOfItem.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.NumOfItem.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Quantity</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.NumOfItem.tooltip}</tooltip>
+            </column>
+            <column id="PriceUnit">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.PriceUnit.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.PriceUnit.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Rate</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.PriceUnit.tooltip}</tooltip>
+            </column>
+            <column id="UnitOfMeasure">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.UnitOfMeasure.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.UnitOfMeasure.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>UOM</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.UnitOfMeasure.tooltip}</tooltip>
+            </column>
+            <column id="LineValue">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.LineValue.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.LineValue.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Line Value</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.LineValue.tooltip}</tooltip>
+            </column>
+            <column id="StartDate">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.StartDate.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.StartDate.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Start Date</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.StartDate.tooltip}</tooltip>
+            </column>
+            <column id="EndDate">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.EndDate.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.EndDate.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>End Date </header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.EndDate.tooltip}</tooltip>
+            </column>
+            <column id="ProjectNumber">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.ProjectNumber.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.ProjectNumber.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Project Number</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.ProjectNumber.tooltip}</tooltip>
+            </column>
+            <column id="TaskNumber">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.TaskNumber.inputValue}</value>
+                  <read-only>#{bindings.XxstgSellContractLines_VO1.hints.TaskNumber.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Task Number</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.XxstgSellContractLines_VO1.hints.TaskNumber.tooltip}</tooltip>
+            </column>
+            <column id="COL1538304663">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.FundingAmount.inputValue}</value>
+                  <read-only>False</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>Funding Amount</header-label>
+              <cell-style>Data Cell</cell-style>
+            </column>
+          </column-list>
+          <display-upload-options>false</display-upload-options>
+          <row-actions>
+            <insert-before-row-action-id>CreateInsert</insert-before-row-action-id>
+            <delete-row-action-id>Delete</delete-row-action-id>
+            <insert-row-enabled>true</insert-row-enabled>
+            <auto-convert-new-rows-enabled>true</auto-convert-new-rows-enabled>
+            <insert-rows-after-upload-enabled>true</insert-rows-after-upload-enabled>
+            <delete-row-enabled>true</delete-row-enabled>
+          </row-actions>
+          <batch-options>
+            <commit-action>Commit</commit-action>
+          </batch-options>
+          <row-limit>
+            <max-rows>500</max-rows>
+          </row-limit>
+        </table-component>
+      </component-list>
+    </worksheet>
+  </worksheet-list>
+  <compatibility>
+    <table-components>
+      <model-driven-columns>
+        <date-picker-enabled>true</date-picker-enabled>
+        <input-lov-picker-enabled>true</input-lov-picker-enabled>
+      </model-driven-columns>
+      <row-action-set-model-mgmt-enabled>true</row-action-set-model-mgmt-enabled>
+      <smart-row-failure-reporting-enabled>true</smart-row-failure-reporting-enabled>
+    </table-components>
+    <data-entry-validation-enabled>true</data-entry-validation-enabled>
+  </compatibility>
+  <auto-display-status-viewer-enabled>true</auto-display-status-viewer-enabled>
+</workbook>

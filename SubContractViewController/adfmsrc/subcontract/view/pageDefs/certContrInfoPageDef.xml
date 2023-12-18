@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="certContrInfoPageDef"
+                Package="subcontract.view.pageDefs" SkipValidation="true">
+   <parameters/>
+   <executables>
+      <variableIterator id="variables"/>
+      <iterator Binds="XxscCertificationHeadersVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscCertificationHeadersVO1Iterator"/>
+      <iterator id="XxscContractLinesVO2Iterator" Binds="XxscContractLinesVO2"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator id="certificationSearchROVO1Iterator"
+                Binds="certificationSearchROVO1"
+                DataControl="contractAMDataControl" RangeSize="25"/>
+      <iterator id="XxscCertificationLinesVO2Iterator"
+                Binds="XxscCertificationLinesVO2"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator id="XxscPayApplLinesVO1Iterator" Binds="XxscPayApplLinesVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator id="PrevAdvAndRetCalcROVO1Iterator"
+                Binds="PrevAdvAndRetCalcROVO1"
+                DataControl="applicationAMDataControl" RangeSize="25"/>
+      <iterator id="XxscCertificationHeadersVO2Iterator"
+                Binds="XxscCertificationHeadersVO2"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator id="FunctionROVO1Iterator" Binds="FunctionROVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator Binds="XxscCertificationLinesVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscCertificationLinesVO1Iterator"/>
+      <iterator Binds="CertInterface_ROVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="CertInterface_ROVO1Iterator"/>
+      <iterator id="XxscUserAccess1Iterator" Binds="XxscUserAccess1"
+                DataControl="contractAMDataControl" RangeSize="25"/>
+      <iterator id="XxscHeadDetailROVO1Iterator" Binds="XxscHeadDetailROVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator Binds="XxscAttachmentVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscAttachmentVO1Iterator"/>
+      <iterator Binds="XxscCertificationOthChargesVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscCertificationOthChargesVO1Iterator"/>
+      <iterator id="XxscPayApplOthChargesVO1Iterator"
+                Binds="XxscPayApplOthChargesVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator Binds="XxscCertAdvanceDtlsVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscCertAdvanceDtlsVO1Iterator"/>
+      <iterator Binds="invoiceStatusROVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="invoiceStatusROVO1Iterator"/>                
+<iterator Binds="XxscCertAdvRecDtlsVO2" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="XxscCertAdvRecDtlsVO2Iterator"/>
+      <iterator id="AdvPrevAmt_ROVO1Iterator" Binds="AdvPrevAmt_ROVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator id="XxscPayApplHeadersVO1Iterator" Binds="XxscPayApplHeadersVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+      <iterator Binds="XxscCertificationHeadersVO1" RangeSize="10"
+                DataControl="payCertAMDataControl"
+                id="XxscCertificationHeadersVO1Iterator1"/>
+      <iterator Binds="PreOthChargeCertROVO1" RangeSize="25"
+                DataControl="payCertAMDataControl"
+                id="PreOthChargeCertROVO1Iterator"/>
+      <iterator id="GetOtherChargesAmountROVO1Iterator"
+                Binds="GetOtherChargesAmountROVO1"
+                DataControl="payCertAMDataControl" RangeSize="25"/>
+   </executables>
+   <bindings>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CertificationNumber">
+         <AttrNames>
+            <Item Value="CertificationNumber"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CertificationDate">
+         <AttrNames>
+            <Item Value="CertificationDate"/>
+         </AttrNames>
+      </attributeValues>
+      <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+            Uses="LOV_PaymentType" id="PaymentType" DTSupportsMRU="true"
+            SelectItemValueMode="ListObject"/>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_projectNumber">
+         <AttrNames>
+            <Item Value="Trans_projectNumber"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_projectName">
+         <AttrNames>
+            <Item Value="Trans_projectName"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_ContractName">
+         <AttrNames>
+            <Item Value="Trans_ContractName"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_SupplierName">
+         <AttrNames>
+            <Item Value="Trans_SupplierName"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_SupplierSite">
+         <AttrNames>
+            <Item Value="Trans_SupplierSite"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Adva_Reco_Per">
+         <AttrNames>
+            <Item Value="Trans_Adva_Reco_Per"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Advan_Recovery">
+         <AttrNames>
+            <Item Value="Trans_Advan_Recovery"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Retension">
+         <AttrNames>
+            <Item Value="Trans_Retension"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Retension_Per">
+         <AttrNames>
+            <Item Value="Trans_Retension_Per"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Revis_Contr_Amo">
+         <AttrNames>
+            <Item Value="Trans_Revis_Contr_Amo"/>
+         </AttrNames>
+      </attributeValues>
+      <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+            Uses="LOV_OrgId" id="OrgId1" DTSupportsMRU="false"
+            SelectItemValueMode="ListObject"/>
+      <listOfValues StaticList="false"
+                    IterBinding="XxscCertificationHeadersVO1Iterator"
+                    Uses="LOV_Trans_ContractNumber" id="Trans_ContractNumber"/>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_ContractAmount">
+         <AttrNames>
+            <Item Value="Trans_ContractAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurCertification">
+         <AttrNames>
+            <Item Value="CurCertification"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurAdvRec">
+         <AttrNames>
+            <Item Value="CurAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurRet">
+         <AttrNames>
+            <Item Value="CurRet"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurRetRel">
+         <AttrNames>
+            <Item Value="CurRetRel"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurPayAmount">
+         <AttrNames>
+            <Item Value="CurPayAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Comments">
+         <AttrNames>
+            <Item Value="Comments"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="InvoiceDate">
+         <AttrNames>
+            <Item Value="InvoiceDate"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="InvoiceNum">
+         <AttrNames>
+            <Item Value="InvoiceNum"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="InvoiceRecDate">
+         <AttrNames>
+            <Item Value="InvoiceRecDate"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="ApprovalStatus">
+         <AttrNames>
+            <Item Value="ApprovalStatus"/>
+         </AttrNames>
+      </attributeValues>
+      <action id="Commit" DataControl="payCertAMDataControl"
+              RequiresUpdateModel="true" Action="commitTransaction"/>
+      <action id="Rollback" RequiresUpdateModel="false"
+              Action="rollbackTransaction" DataControl="payCertAMDataControl"/>
+      <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+            Uses="LOV_ApplHeaderId" id="ApplHeaderId" DTSupportsMRU="true"
+            SelectItemValueMode="ListObject"/>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevApplication">
+         <AttrNames>
+            <Item Value="PrevApplication"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevPayAmount">
+         <AttrNames>
+            <Item Value="PrevPayAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="TotalAdvAmount">
+         <AttrNames>
+            <Item Value="TotalAdvAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevAdvRec">
+         <AttrNames>
+            <Item Value="PrevAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="BalanceAdvRec">
+         <AttrNames>
+            <Item Value="BalanceAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="TotalRet">
+         <AttrNames>
+            <Item Value="TotalRet"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevRet">
+         <AttrNames>
+            <Item Value="PrevRet"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="BalanceRet">
+         <AttrNames>
+            <Item Value="BalanceRet"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="RetInvoiceNum">
+         <AttrNames>
+            <Item Value="RetInvoiceNum"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Customer_Name">
+         <AttrNames>
+            <Item Value="Trans_Customer_Name"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Customer_Site_Name">
+         <AttrNames>
+            <Item Value="Trans_Customer_Site_Name"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Supplier_Invoice_Num">
+         <AttrNames>
+            <Item Value="Supplier_Invoice_Num"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Supplier_Invoice_Date">
+         <AttrNames>
+            <Item Value="Supplier_Invoice_Date"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CertHeaderId">
+         <AttrNames>
+            <Item Value="CertHeaderId"/>
+         </AttrNames>
+      </attributeValues>
+      <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+            Uses="LOV_ApprovalStatus" id="ApprovalStatus1" DTSupportsMRU="true"
+            SelectItemValueMode="ListObject"/>
+      <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+            Uses="LOV_CertificationStatus" id="CertificationStatus"
+            DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="ApplicationNumber">
+         <AttrNames>
+            <Item Value="ApplicationNumber"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Mat_per">
+         <AttrNames>
+            <Item Value="Trans_Mat_per"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Mat_Amt">
+         <AttrNames>
+            <Item Value="Trans_Mat_Amt"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="TotalMatAdvAmount">
+         <AttrNames>
+            <Item Value="TotalMatAdvAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="XxscCertificationLinesVO1Iterator"
+            id="XxscCertificationLinesVO1">
+         <nodeDefinition DefName="view.XxscCertificationLinesVO"
+                         Name="XxscCertificationLinesVO10">
+            <AttrNames>
+               <Item Value="OrgId"/>
+               <Item Value="CertLineId"/>
+               <Item Value="CertHeaderId"/>
+               <Item Value="ApplLineId"/>
+               <Item Value="ApplHeaderId"/>
+               <Item Value="ContractHeaderId"/>
+               <Item Value="ContLineId"/>
+               <Item Value="Version"/>
+               <Item Value="Trans_ConLine_Number"/>
+               <Item Value="Trans_ConLine_ProjectNum"/>
+               <Item Value="Trans_ContractLineNumber"/>
+               <Item Value="Trans_ConLine_ItemDesc"/>
+               <Item Value="Trans_ConLine_UOM"/>
+               <Item Value="TaxCode"/>
+               <Item Value="TaskNumber_TRANS"/>
+               <Item Value="Trans_ConLine_QTY"/>
+               <Item Value="Trans_ConLine_Rate"/>
+               <Item Value="TaxRate"/>
+               <Item Value="Trans_ConLine_Amount"/>
+               <Item Value="Trans_TaxAmt"/>
+               <Item Value="EcpPercentage"/>
+               <Item Value="EcpTotalAmount"/>
+               <Item Value="PrevSupOnlyQty"/>
+               <Item Value="PrevSupInsQty"/>
+               <Item Value="PrevTotQty"/>
+               <Item Value="PrevPerc"/>
+               <Item Value="PrevAmount"/>
+               <Item Value="CurrSupOnlyQty"/>
+               <Item Value="CurrSupInsQty"/>
+               <Item Value="CurrTotQty"/>
+               <Item Value="CurrPerc"/>
+               <Item Value="CurrAmount"/>
+               <Item Value="TaxAmount"/>
+               <Item Value="CumSupOnlyQty"/>
+               <Item Value="CumSupInsQty"/>
+               <Item Value="CumTotQty"/>
+               <Item Value="CumPerc"/>
+               <Item Value="CumAmount"/>
+               <Item Value="PrevSupOnlyQty_Trans"/>
+               <Item Value="PrevSupInsQty_Trans"/>
+               <Item Value="PrevTotQty_Trans"/>
+               <Item Value="PrevPerc_Trans"/>
+               <Item Value="PrevAmount_Trans"/>
+               <Item Value="CurrSupOnlyQty_Trans"/>
+               <Item Value="CurrSupInsQty_Trans"/>
+               <Item Value="CurrTotQty_Trans"/>
+               <Item Value="CurrPerc_Trans"/>
+               <Item Value="CurrAmount_Trans"/>
+               <Item Value="CurrTaxAmount_Trans"/>
+               <Item Value="CumSupOnlyQty_Trans"/>
+               <Item Value="CumSupInsQty_Trans"/>
+               <Item Value="CumTotQty_Trans"/>
+               <Item Value="CumPerc_Trans"/>
+               <Item Value="CumAmount_Trans"/>
+               <Item Value="Trans_Variation"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_PenPer">
+         <AttrNames>
+            <Item Value="Trans_PenPer"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_PenAmt">
+         <AttrNames>
+            <Item Value="Trans_PenAmt"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_Prov">
+         <AttrNames>
+            <Item Value="Trans_Prov"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PaymentDueDate">
+         <AttrNames>
+            <Item Value="PaymentDueDate"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="BalContAmt">
+         <AttrNames>
+            <Item Value="BalContAmt"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CumApplication">
+         <AttrNames>
+            <Item Value="CumApplication"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CumAdvRec">
+         <AttrNames>
+            <Item Value="CumAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CumRet">
+         <AttrNames>
+            <Item Value="CumRet"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="TotalMaterialAdvAmount">
+         <AttrNames>
+            <Item Value="TotalMaterialAdvAmount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CumMatAdvRec">
+         <AttrNames>
+            <Item Value="CumMatAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurMatAdvRec">
+         <AttrNames>
+            <Item Value="CurMatAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="BalMatAdvRec">
+         <AttrNames>
+            <Item Value="BalMatAdvRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevMatAdvAmt">
+         <AttrNames>
+            <Item Value="PrevMatAdvAmt"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="cont_Adv_Recovery">
+         <AttrNames>
+            <Item Value="cont_Adv_Recovery"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="cont_Mat_Recovery">
+         <AttrNames>
+            <Item Value="cont_Mat_Recovery"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_ApplPayTerm">
+         <AttrNames>
+            <Item Value="Trans_ApplPayTerm"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="ContraCharges">
+         <AttrNames>
+            <Item Value="ContraCharges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurApplicationTrans">
+         <AttrNames>
+            <Item Value="CurApplicationTrans"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Curpaytaxamount">
+         <AttrNames>
+            <Item Value="Curpaytaxamount"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationLinesVO1Iterator"
+                       id="TaxRate">
+         <AttrNames>
+            <Item Value="TaxRate"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Taxrate">
+         <AttrNames>
+            <Item Value="Taxrate"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="AppPenaltyCharges">
+         <AttrNames>
+            <Item Value="AppPenaltyCharges"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="CertInterface_ROVO1Iterator" id="CertInterface_ROVO1">
+         <nodeDefinition DefName="ROVO.CertInterface_ROVO"
+                         Name="CertInterface_ROVO10">
+            <AttrNames>
+               <Item Value="Rownum"/>
+               <Item Value="CertHeaderId"/>
+               <Item Value="InterfaceType"/>
+               <Item Value="IntType"/>
+               <Item Value="IntReference"/>
+               <Item Value="Status"/>
+               <Item Value="Amt"/>
+               <Item Value="ErrorMsg"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="MatOnSite">
+         <AttrNames>
+            <Item Value="MatOnSite"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="MatOnSiteDesc">
+         <AttrNames>
+            <Item Value="MatOnSiteDesc"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO2Iterator"
+                       id="MatAdvRecDesc">
+         <AttrNames>
+            <Item Value="MatAdvRecDesc"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="ContraChargesDesc">
+         <AttrNames>
+            <Item Value="ContraChargesDesc"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PenaltyChargesDesc">
+         <AttrNames>
+            <Item Value="PenaltyChargesDesc"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="cont_Ret_Recovery">
+         <AttrNames>
+            <Item Value="cont_Ret_Recovery"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="totRet_TRNS">
+         <AttrNames>
+            <Item Value="totRet_TRNS"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PaymentTermE">
+         <AttrNames>
+            <Item Value="PaymentTermE"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="totAdv_TRNS">
+         <AttrNames>
+            <Item Value="totAdv_TRNS"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="totCont_TRNS">
+         <AttrNames>
+            <Item Value="totCont_TRNS"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PenaltyCharges">
+         <AttrNames>
+            <Item Value="PenaltyCharges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="FuncId">
+         <AttrNames>
+            <Item Value="FuncId"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="FlowLevel">
+         <AttrNames>
+            <Item Value="FlowLevel"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="FlowWith">
+         <AttrNames>
+            <Item Value="FlowWith"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="MatOnSiteRec">
+         <AttrNames>
+            <Item Value="MatOnSiteRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="MatOnSiteRecDesc">
+         <AttrNames>
+            <Item Value="MatOnSiteRecDesc"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurMatOnSiteRec">
+         <AttrNames>
+            <Item Value="CurMatOnSiteRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevContraCharges">
+         <AttrNames>
+            <Item Value="PrevContraCharges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevPenaltyCharges">
+         <AttrNames>
+            <Item Value="PrevPenaltyCharges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevMaterialRec">
+         <AttrNames>
+            <Item Value="PrevMaterialRec"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Tot_Mat_Charges">
+         <AttrNames>
+            <Item Value="Tot_Mat_Charges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Tot_Back_Charges">
+         <AttrNames>
+            <Item Value="Tot_Back_Charges"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Tot_Penality_Charges">
+         <AttrNames>
+            <Item Value="Tot_Penality_Charges"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="XxscAttachmentVO1Iterator" id="XxscAttachmentVO1">
+         <nodeDefinition DefName="view.XxscAttachmentVO"
+                         Name="XxscAttachmentVO10">
+            <AttrNames>
+               <Item Value="AttachId"/>
+               <Item Value="Apprefid"/>
+               <Item Value="Certrefid"/>
+               <Item Value="RefId"/>
+               <Item Value="Version"/>
+               <Item Value="ScrName"/>
+               <Item Value="Attachment"/>
+               <Item Value="FileName"/>
+               <Item Value="FileType"/>
+               <Item Value="Description"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <action IterBinding="XxscAttachmentVO1Iterator" id="CreateInsert"
+              RequiresUpdateModel="true" Action="createInsertRow"/>
+      <action IterBinding="XxscAttachmentVO1Iterator" id="Delete"
+              RequiresUpdateModel="false" Action="removeCurrentRow"/>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_ProjoctID">
+         <AttrNames>
+            <Item Value="Trans_ProjoctID"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="UserGrpId">
+         <AttrNames>
+            <Item Value="UserGrpId"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Total_Retention_Release">
+         <AttrNames>
+            <Item Value="Total_Retention_Release"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevRetRel">
+         <AttrNames>
+            <Item Value="PrevRetRel"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="XxscCertificationOthChargesVO1Iterator"
+            id="XxscCertificationOthChargesVO1">
+         <nodeDefinition DefName="view.XxscCertificationOthChargesVO"
+                         Name="XxscCertificationOthChargesVO10">
+            <AttrNames>
+               <Item Value="ChargeName"/>
+               <Item Value="ChargeAmt"/>
+               <Item Value="Reason"/>
+               <Item Value="totalAmt"/>
+               <Item Value="ChargeType"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CurOthCharge">
+         <AttrNames>
+            <Item Value="CurOthCharge"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="PrevOthCharge">
+         <AttrNames>
+            <Item Value="PrevOthCharge"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="TotOthCharge">
+         <AttrNames>
+            <Item Value="TotOthCharge"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationOthChargesVO1Iterator"
+                       id="totalAmt">
+         <AttrNames>
+            <Item Value="totalAmt"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="invoiceStatusROVO1Iterator" id="invoiceStatusROVO1">
+         <nodeDefinition DefName="ROVO.invoiceStatusROVO"
+                         Name="invoiceStatusROVO10">
+            <AttrNames>
+               <Item Value="CertHeaderId"/>
+               <Item Value="InvoiceId"/>
+               <Item Value="InvStatus"/>
+               <Item Value="InvError"/>
+               <Item Value="InvRejectionMsg"/>
+               <Item Value="CreditRejectionMsg"/>
+               <Item Value="CrMemoInvId"/>
+               <Item Value="CrMemoErrorMsg"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <tree IterBinding="XxscCertAdvanceDtlsVO1Iterator"
+            id="XxscCertAdvanceDtlsVO1">
+         <nodeDefinition DefName="view.XxscCertAdvanceDtlsVO"
+                         Name="XxscCertAdvanceDtlsVO10">
+            <AttrNames>
+               <Item Value="AdvanceName"/>
+               <Item Value="AdvanceAmt"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+<tree IterBinding="XxscCertAdvRecDtlsVO2Iterator"
+            id="XxscCertAdvRecDtlsVO2">
+         <nodeDefinition DefName="view.XxscCertAdvRecDtlsVO"
+                         Name="XxscCertAdvRecDtlsVO20">
+            <AttrNames>
+               <Item Value="AdvanceName"/>
+               <Item Value="AdvanceAmt"/>
+               <Item Value="CurRecAmt"/>
+               <Item Value="RecoveredAmt"/>
+               <Item Value="BalanceAmt"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="Trans_PaymentTermType">
+         <AttrNames>
+            <Item Value="Trans_PaymentTermType"/>
+         </AttrNames>
+      </attributeValues>
+      <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                       id="CummAmt">
+         <AttrNames>
+            <Item Value="CummAmt"/>
+         </AttrNames>
+      </attributeValues>
+      <tree IterBinding="PreOthChargeCertROVO1Iterator"
+            id="PreOthChargeCertROVO1">
+         <nodeDefinition DefName="ROVO.PreOthChargeCertROVO"
+                         Name="PreOthChargeCertROVO10">
+            <AttrNames>
+               <Item Value="ChargeType"/>
+               <Item Value="ChargeName"/>
+               <Item Value="ChargeAmt"/>
+               <Item Value="Reason"/>
+               <Item Value="ChargeId"/>
+               <Item Value="CurrentCharge"/>
+               <Item Value="CertHeaderId"/>
+               <Item Value="CertificationNumber"/>
+               <Item Value="PaymentType"/>
+               <Item Value="ContHeaderId"/>
+            </AttrNames>
+         </nodeDefinition>
+      </tree>
+      <methodAction id="deletedbcall"
+                    InstanceName="payCertAMDataControl.dataProvider"
+                    DataControl="payCertAMDataControl"
+                    RequiresUpdateModel="true" Action="invokeMethod"
+                    MethodName="deletedbcall" IsViewObjectMethod="false"
+                    ReturnName="data.payCertAMDataControl.methodResults.deletedbcall_payCertAMDataControl_dataProvider_deletedbcall_result">
+         <NamedData NDName="p_cid" NDType="java.lang.String"/>
+         <NamedData NDName="p_type" NDType="java.lang.String"/>
+         <NamedData NDName="P_username" NDType="java.lang.String"/>
+         <NamedData NDName="p_ip" NDType="java.lang.String"/>
+      </methodAction>
+   </bindings>
+</pageDefinition>

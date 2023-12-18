@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MaxDeliveryLine"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.MaxDeliveryLine_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BV_HRDID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BV_VERSION"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select MAX(SNO)as MaxNumber from XXSC_CONTRACT_DEL_PLAN where CONT_HEADER_ID=:BV_HRDID
+AND VERSION=:BV_VERSION
+AND VERSION_TYPE='C']]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Maxnumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="MAXNUMBER"
+    Expression="MAXNUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

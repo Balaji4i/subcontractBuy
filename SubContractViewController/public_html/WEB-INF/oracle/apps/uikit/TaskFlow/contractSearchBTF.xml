@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="contractSearchBTF">
+    <default-activity id="__1">refreshSearchScreeh</default-activity>
+    <managed-bean id="__36">
+      <managed-bean-name id="__34">contrSearch</managed-bean-name>
+      <managed-bean-class id="__33">backing.contrSearch</managed-bean-class>
+      <managed-bean-scope id="__35">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__102">
+      <managed-bean-name id="__54">Exception</managed-bean-name>
+      <managed-bean-class id="__103">Utils.ErrorHandler</managed-bean-class>
+      <managed-bean-scope id="__55">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="contrSearch">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/contrSearch.jsff</page>
+    </view>
+    <task-flow-call id="contractAddEditBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/contractAddEditBTF.xml</document>
+        <id>contractAddEditBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="contractExecute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__22">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="payCertBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/payCertBTF.xml</document>
+        <id>payCertBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="ApplicationBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/ApplicationBTF.xml</document>
+        <id>ApplicationBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="refreshSearchScreeh">
+      <method>#{bindings.refreshSearchScreeh.execute}</method>
+      <outcome id="__61">
+        <fixed-outcome>refreshSearchScreeh</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="variationExecute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__82">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__88">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute1">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__8">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="retReleaseBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/retReleaseBTF.xml</document>
+        <id>retReleaseBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="Execute_RetRel">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__39">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="usercount">
+      <method>#{bindings.usercount.execute}</method>
+      <outcome id="__104">
+        <fixed-outcome>usercount</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">contrSearch</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome id="__57">Certification</from-outcome>
+        <to-activity-id id="__50">payCertBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__58">
+        <from-outcome id="__60">Application</from-outcome>
+        <to-activity-id id="__59">ApplicationBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome id="__6">contract</from-outcome>
+        <to-activity-id id="__5">contractAddEditBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome id="__38">retention</from-outcome>
+        <to-activity-id id="__37">retReleaseBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">contractExecute</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome id="__31">Execute</from-outcome>
+        <to-activity-id id="__30">variationExecute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id id="__24">contractAddEditBTF</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome id="__25">contractInfo_Cancel</from-outcome>
+        <to-activity-id id="__27">contractExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__67">
+        <from-outcome id="__69">saveTF</from-outcome>
+        <to-activity-id id="__68">contractExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__71">
+        <from-outcome id="__70">partytInfo_Cancel</from-outcome>
+        <to-activity-id id="__72">contractExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__75">
+        <from-outcome id="__74">PaymeInfo_Cancel</from-outcome>
+        <to-activity-id id="__73">contractExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__78">
+        <from-outcome id="__76">gaurInfo_Cancel</from-outcome>
+        <to-activity-id id="__77">contractExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__79">
+        <from-outcome id="__81">LinetInfo_Cancel</from-outcome>
+        <to-activity-id id="__80">contractExecute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__62">
+      <from-activity-id id="__63">refreshSearchScreeh</from-activity-id>
+      <control-flow-case id="__66">
+        <from-outcome id="__65">refreshSearchScreeh</from-outcome>
+        <to-activity-id id="__64">usercount</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__83">
+      <from-activity-id id="__84">variationExecute</from-activity-id>
+      <control-flow-case id="__85">
+        <from-outcome id="__87">Execute</from-outcome>
+        <to-activity-id id="__86">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__89">
+      <from-activity-id id="__90">payCertBTF</from-activity-id>
+      <control-flow-case id="__92">
+        <from-outcome id="__91">cancel</from-outcome>
+        <to-activity-id id="__93">Execute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__99">
+        <from-outcome id="__101">save</from-outcome>
+        <to-activity-id id="__100">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__94">
+      <from-activity-id id="__95">Execute</from-activity-id>
+      <control-flow-case id="__98">
+        <from-outcome id="__97">Execute</from-outcome>
+        <to-activity-id id="__96">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">Execute1</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__12">Execute</from-outcome>
+        <to-activity-id id="__11">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">ApplicationBTF</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__17">cancel</from-outcome>
+        <to-activity-id id="__16">Execute1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome id="__19">save</from-outcome>
+        <to-activity-id id="__21">Execute1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id id="__41">retReleaseBTF</from-activity-id>
+      <control-flow-case id="__43">
+        <from-outcome id="__44">cancel</from-outcome>
+        <to-activity-id id="__42">Execute_RetRel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome id="__47">save</from-outcome>
+        <to-activity-id id="__46">Execute_RetRel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id id="__49">Execute_RetRel</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome id="__52">Execute</from-outcome>
+        <to-activity-id id="__53">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__105">
+      <from-activity-id id="__106">usercount</from-activity-id>
+      <control-flow-case id="__109">
+        <from-outcome id="__107">usercount</from-outcome>
+        <to-activity-id id="__108">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

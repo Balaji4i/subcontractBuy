@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="retReleaseInfoPageDef"
+                Package="oracle.apps.uikit.Fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscRetReleaseHeadersVO2_1" RangeSize="25"
+              DataControl="retReleaseAMDataControl"
+              id="XxscRetReleaseHeadersVO2_1Iterator"/>
+    <iterator Binds="XxscRetReleaseLinesVO1" RangeSize="25"
+              DataControl="retReleaseAMDataControl"
+              id="XxscRetReleaseLinesVO1Iterator"/>
+    <iterator id="certInvoiceROVO1Iterator" Binds="certInvoiceROVO1"
+              DataControl="retReleaseAMDataControl" RangeSize="25"/>
+    <iterator id="contractLineROVO1Iterator" Binds="contractLineROVO1"
+              DataControl="retReleaseAMDataControl" RangeSize="25"/>
+    <iterator id="XxscCertInvoices_VO1Iterator" Binds="XxscCertInvoices_VO1"
+              DataControl="retReleaseAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false"
+                  IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                  Uses="LOV_ContractNumTrans" id="ContractNumTrans"/>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="RetRelHeaderId">
+      <AttrNames>
+        <Item Value="RetRelHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="ContHeaderId">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscRetReleaseHeadersVO2_1Iterator" StaticList="false"
+          Uses="LOV_OrgId" id="OrgId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="RetRelAmt">
+      <AttrNames>
+        <Item Value="RetRelAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="RetRelDate">
+      <AttrNames>
+        <Item Value="RetRelDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="RetRelNumber">
+      <AttrNames>
+        <Item Value="RetRelNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="RetRelType">
+      <AttrNames>
+        <Item Value="RetRelType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxscRetReleaseLinesVO1Iterator"
+          id="XxscRetReleaseLinesVO1">
+      <nodeDefinition DefName="view.XxscRetReleaseLinesVO"
+                      Name="XxscRetReleaseLinesVO10">
+        <AttrNames>
+          <Item Value="RetRelLineId"/>
+          <Item Value="RetRelHeaderId"/>
+          <Item Value="OrgId"/>
+          <Item Value="CertInvoiceId"/>
+          <Item Value="Sno"/>
+          <Item Value="ContractNumTrans"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="invoice_amountTrans"/>
+          <Item Value="released_amount_Trans"/>
+          <Item Value="balance_amount_Trans"/>
+          <Item Value="RetRelAmt"/>
+          <Item Value="Remarks"/>
+          <Item Value="contractNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="XxscRetReleaseHeadersVO2_1Iterator" StaticList="false"
+          Uses="LOV_RetRelStatus" id="RetRelStatus1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="XxscRetReleaseHeadersVO2_1Iterator" StaticList="false"
+          Uses="LOV_ApprovalStatus" id="ApprovalStatus1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="retReleaseAMDataControl"/>
+    <tree IterBinding="certInvoiceROVO1Iterator" id="certInvoiceROVO1">
+      <nodeDefinition DefName="ROVO.certInvoiceROVO" Name="certInvoiceROVO10">
+        <AttrNames>
+          <Item Value="CertInvoiceId"/>
+          <Item Value="CertHeaderId"/>
+          <Item Value="InvoiceDate"/>
+          <Item Value="InvoiceFlag"/>
+          <Item Value="OrgId"/>
+          <Item Value="Flag"/>
+          <Item Value="BuName"/>
+          <Item Value="ContractNum"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="InvoiceAmount"/>
+          <Item Value="ReleasedAmount"/>
+          <Item Value="Balamount"/>
+          <Item Value="retReleaseTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="retReleaseAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+                     id="InvRetStatus">
+      <AttrNames>
+        <Item Value="InvRetStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

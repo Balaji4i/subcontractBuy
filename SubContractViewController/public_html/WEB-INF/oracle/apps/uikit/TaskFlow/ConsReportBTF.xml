@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ConsReportBTF">
+    <default-activity id="__1">ConsReport</default-activity>
+    <managed-bean id="__14">
+      <managed-bean-name id="__15">ConsolidateReport</managed-bean-name>
+      <managed-bean-class id="__16">consolidatedreport</managed-bean-class>
+      <managed-bean-scope id="__17">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="ConsReport">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/ConsReport.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxstgSellContractHeaders_EO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XXSTG_SELL_CONTRACT_HEADERS"
+  AliasName="XxstgSellContractHeaders_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ContractHeaderId"
+    IsNotNull="true"
+    ColumnName="CONTRACT_HEADER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MajorVersion"
+    IsNotNull="true"
+    ColumnName="MAJOR_VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionType"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="VERSION_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StsCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="STS_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrencyCode"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="CURRENCY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StartDate"
+    IsNotNull="true"
+    ColumnName="START_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EndDate"
+    ColumnName="END_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionNumber"
+    IsNotNull="true"
+    ColumnName="OBJECT_VERSION_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustPoNumber"
+    Precision="50"
+    ColumnName="CUST_PO_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CancelledAmount"
+    ColumnName="CANCELLED_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToAcctId"
+    ColumnName="BILL_TO_ACCT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToAccountNumber"
+    Precision="30"
+    ColumnName="BILL_TO_ACCOUNT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToAccountName"
+    Precision="240"
+    ColumnName="BILL_TO_ACCOUNT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToSiteUseId"
+    ColumnName="BILL_TO_SITE_USE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToSite"
+    Precision="150"
+    ColumnName="BILL_TO_SITE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToAcctId"
+    ColumnName="SHIP_TO_ACCT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToAccountNumber"
+    Precision="30"
+    ColumnName="SHIP_TO_ACCOUNT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToAccountName"
+    Precision="240"
+    ColumnName="SHIP_TO_ACCOUNT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToSiteUseId"
+    ColumnName="SHIP_TO_SITE_USE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToSite"
+    Precision="150"
+    ColumnName="SHIP_TO_SITE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractNumber"
+    IsNotNull="true"
+    Precision="120"
+    ColumnName="CONTRACT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="120"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractNumberModifier"
+    Precision="120"
+    ColumnName="CONTRACT_NUMBER_MODIFIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="120"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractName"
+    Precision="300"
+    ColumnName="CONTRACT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractTypeId"
+    IsNotNull="true"
+    ColumnName="CONTRACT_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractType"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CONTRACT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BuyOrSell"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="BUY_OR_SELL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgId"
+    IsNotNull="true"
+    ColumnName="ORG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillPlanId"
+    ColumnName="BILL_PLAN_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillPlanName"
+    Precision="30"
+    ColumnName="BILL_PLAN_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToContactId"
+    ColumnName="BILL_TO_CONTACT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BillToContact"
+    Precision="360"
+    ColumnName="BILL_TO_CONTACT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RevenuePlanId"
+    ColumnName="REVENUE_PLAN_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RevenuePlanName"
+    Precision="30"
+    ColumnName="REVENUE_PLAN_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvOrganizationId"
+    ColumnName="INV_ORGANIZATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EstimatedAmount"
+    ColumnName="ESTIMATED_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvTrxTypeId"
+    ColumnName="INV_TRX_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentTermId"
+    ColumnName="PAYMENT_TERM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentType"
+    Precision="30"
+    ColumnName="PAYMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LegalEntityId"
+    ColumnName="LEGAL_ENTITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DateApproved"
+    ColumnName="DATE_APPROVED"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DatetimeCancelled"
+    ColumnName="DATETIME_CANCELLED"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DateSigned"
+    ColumnName="DATE_SIGNED"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OwningOrgId"
+    ColumnName="OWNING_ORG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApTermsId"
+    ColumnName="AP_TERMS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TaskId"
+    Precision="64"
+    ColumnName="TASK_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StateTransitionFlowState"
+    Precision="240"
+    ColumnName="STATE_TRANSITION_FLOW_STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeCategory"
+    Precision="30"
+    ColumnName="ATTRIBUTE_CATEGORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="150"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="150"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="150"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="150"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="150"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeNumber1"
+    ColumnName="ATTRIBUTE_NUMBER1"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeNumber2"
+    ColumnName="ATTRIBUTE_NUMBER2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeNumber3"
+    ColumnName="ATTRIBUTE_NUMBER3"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeNumber4"
+    ColumnName="ATTRIBUTE_NUMBER4"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeNumber5"
+    ColumnName="ATTRIBUTE_NUMBER5"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeDate1"
+    ColumnName="ATTRIBUTE_DATE1"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeDate2"
+    ColumnName="ATTRIBUTE_DATE2"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeDate3"
+    ColumnName="ATTRIBUTE_DATE3"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeDate4"
+    ColumnName="ATTRIBUTE_DATE4"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttributeDate5"
+    ColumnName="ATTRIBUTE_DATE5"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OutputTaxClassificationCode"
+    Precision="200"
+    ColumnName="OUTPUT_TAX_CLASSIFICATION_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXSTG_SELL_CONTRACT_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="SysC0028899">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028899"/>
+      <Attr Name="_checkCondition" Value='"CONTRACT_HEADER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.ContractHeaderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028900">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028900"/>
+      <Attr Name="_checkCondition" Value='"MAJOR_VERSION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.MajorVersion"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028901">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028901"/>
+      <Attr Name="_checkCondition" Value='"VERSION_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.VersionType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028902">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028902"/>
+      <Attr Name="_checkCondition" Value='"STS_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.StsCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028903">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028903"/>
+      <Attr Name="_checkCondition" Value='"CURRENCY_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.CurrencyCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028904">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028904"/>
+      <Attr Name="_checkCondition" Value='"START_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.StartDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028905">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028905"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.ObjectVersionNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028906">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028906"/>
+      <Attr Name="_checkCondition" Value='"CONTRACT_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.ContractNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028907">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028907"/>
+      <Attr Name="_checkCondition" Value='"CONTRACT_TYPE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.ContractTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028908">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028908"/>
+      <Attr Name="_checkCondition" Value='"BUY_OR_SELL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.BuyOrSell"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0028909">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0028909"/>
+      <Attr Name="_checkCondition" Value='"ORG_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.OrgId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxstgsellcontractheadersEoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXSTGSELLCONTRACTHEADERS_EO_PR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxstgSellContractHeaders_EO.ContractHeaderId"/>
+    </AttrArray>
+  </Key>
+</Entity>

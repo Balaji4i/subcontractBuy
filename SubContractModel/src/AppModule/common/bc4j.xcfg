@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="AppModule.contractAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="contractAMLocal" ApplicationName="AppModule.contractAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="AppModule.contractAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="contractAMShared" ApplicationName="AppModule.contractAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.contractAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.payCertAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="payCertAMLocal" ApplicationName="AppModule.payCertAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="AppModule.payCertAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="payCertAMShared" ApplicationName="AppModule.payCertAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.payCertAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.applicationAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="applicationAMLocal" ApplicationName="AppModule.applicationAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="AppModule.applicationAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="applicationAMShared" ApplicationName="AppModule.applicationAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.applicationAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.SellContract_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="SellContract_AMLocal" ApplicationName="AppModule.SellContract_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="AppModule.SellContract_AM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="SellContract_AMShared" ApplicationName="AppModule.SellContract_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.SellContract_AM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.retReleaseAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="retReleaseAMLocal" ApplicationName="AppModule.retReleaseAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="AppModule.retReleaseAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" name="retReleaseAMShared" ApplicationName="AppModule.retReleaseAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="AppModule.retReleaseAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.ConsReportAM">
+      <AppModuleConfig name="ConsReportAMLocal" ApplicationName="AppModule.ConsReportAM" DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel">
+         <Security AppModuleJndiName="AppModule.ConsReportAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="ConsReportAMShared" ApplicationName="AppModule.ConsReportAM" DeployPlatform="LOCAL" jbo.txn.disconnect_level="1" jbo.project="subcontract.model.SubContractModel" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="AppModule.ConsReportAM"/>
+         <Custom JDBCDataSource="apex"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

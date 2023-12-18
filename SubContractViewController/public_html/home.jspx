@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" binding="#{backingBeanScope.home.d1}">
+      <af:form id="f1" usesUpload="true" binding="#{backingBeanScope.home.f1}">
+        <af:decorativeBox id="db1" styleClass="background-color:White;"
+                          topHeight="35px"
+                          binding="#{backingBeanScope.home.db1}">
+          <f:facet name="center">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 binding="#{backingBeanScope.home.pgl3}"
+                                 id="pgl3">
+              <af:outputText value="#{pageFlowScope.tokens}"
+                             binding="#{backingBeanScope.home.ot1}" id="ot1"
+                             rendered="false"
+                             inlineStyle="font-weight:bolder; color:Red; font-size:small;"/>
+              <af:region value="#{bindings.dynamic.regionModel}" id="r1"
+                         binding="#{backingBeanScope.home.r1}"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl2" inlineStyle="height:49.0px;"
+                                 layout="scroll"
+                                 binding="#{backingBeanScope.home.pgl2}">
+              <af:panelGridLayout id="pgl1"
+                                  inlineStyle="color:White; background-color:White;"
+                                  binding="#{backingBeanScope.home.pgl1}">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px"
+                            id="gr1" binding="#{backingBeanScope.home.gr1}">
+                  <af:gridCell marginStart="5px" width="auto" id="gc1"
+                               binding="#{backingBeanScope.home.gc1}"/>
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                               id="gc2" halign="end"
+                               binding="#{backingBeanScope.home.gc2}">
+                    <af:commandButton text="Back" id="cb1"
+                                      icon="/images/back_dis.png"
+                                      action="toDashBoard"
+                                      inlineStyle="margin-right:5px"
+                                      binding="#{backingBeanScope.home.cb1}"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+      <af:resource type="javascript">
+        function submitFormCon(event) { if (event.getKeyCode() ==
+        AdfKeyStroke.ENTER_KEY) { var source = event.getSource(); var myButton =
+        source.findComponent("cb1"); var actionEvent = new
+        AdfActionEvent(myButton); actionEvent.forceFullSubmit();
+        actionEvent.noResponseExpected(); actionEvent.queue(); } }
+      </af:resource>
+      <af:resource type="javascript">
+        function submitFormVar(event) { if (event.getKeyCode() ==
+        AdfKeyStroke.ENTER_KEY) { var source = event.getSource(); var myButton =
+        source.findComponent("cb11"); var actionEvent = new
+        AdfActionEvent(myButton); actionEvent.forceFullSubmit();
+        actionEvent.noResponseExpected(); actionEvent.queue(); } }
+      </af:resource>
+      <af:resource type="javascript">
+        function submitFormCer(event) { if (event.getKeyCode() ==
+        AdfKeyStroke.ENTER_KEY) { var source = event.getSource(); var myButton =
+        source.findComponent("cb9"); var actionEvent = new
+        AdfActionEvent(myButton); actionEvent.forceFullSubmit();
+        actionEvent.noResponseExpected(); actionEvent.queue(); } }
+      </af:resource>
+      <af:resource type="javascript">
+        function submitFormAppBuy(event) { if (event.getKeyCode() ==
+        AdfKeyStroke.ENTER_KEY) { var source = event.getSource(); var myButton =
+        source.findComponent("cb13"); var actionEvent = new
+        AdfActionEvent(myButton); actionEvent.forceFullSubmit();
+        actionEvent.noResponseExpected(); actionEvent.queue(); } }
+      </af:resource>
+       <af:resource type="javascript">
+        function submitFormRetRel(event) { if (event.getKeyCode() ==
+        AdfKeyStroke.ENTER_KEY) { var source = event.getSource(); var myButton =
+        source.findComponent("cb15"); var actionEvent = new
+        AdfActionEvent(myButton); actionEvent.forceFullSubmit();
+        actionEvent.noResponseExpected(); actionEvent.queue(); } }
+      </af:resource>
+   </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:home-->
+</jsp:root>

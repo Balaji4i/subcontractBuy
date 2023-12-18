@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="homeSellBTF">
+    <default-activity id="__20">methodCall1</default-activity>
+    <input-parameter-definition id="__32">
+      <name id="__31">jwt</name>
+      <value>#{pageFlowScope.tokens}</value>
+    </input-parameter-definition>
+    <managed-bean id="__13">
+      <managed-bean-name id="__2">homeSell</managed-bean-name>
+      <managed-bean-class id="__15">backing.homeSell</managed-bean-class>
+      <managed-bean-scope id="__14">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__37">
+      <managed-bean-name id="__38">Exception</managed-bean-name>
+      <managed-bean-class id="__35">Utils.ErrorHandler</managed-bean-class>
+      <managed-bean-scope id="__36">backingBean</managed-bean-scope>
+    </managed-bean>
+    <exception-handler id="__43">ErrorHandling</exception-handler>
+    <view id="DashBoardSell">
+      <page>/DashBoardSell.jspx</page>
+    </view>
+    <view id="homeSell">
+      <page>/homeSell.jspx</page>
+    </view>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.val eq 'validUser'}</expression>
+        <outcome id="__29">validUser</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.val eq 'Invalid'}</expression>
+        <outcome id="__30">Invalid</outcome>
+      </case>
+      <default-outcome>validUser</default-outcome>
+    </router>
+    <view id="Invalid">
+      <page>/Invalid.jspx</page>
+    </view>
+    <method-call id="methodCall1">
+      <method>#{backingBeanScope.homeSell.checkUser}</method>
+      <outcome id="__33">
+        <fixed-outcome>toRouter</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ErrorHandling">
+      <method>#{backingBeanScope.Exception.handleError}</method>
+      <outcome id="__39">
+        <fixed-outcome>error</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">DashBoardSell</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">toHomeSell</from-outcome>
+        <to-activity-id id="__5">homeSell</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">homeSell</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">toDashBoardSell</from-outcome>
+        <to-activity-id id="__10">DashBoardSell</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">router1</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__25">Invalid</from-outcome>
+        <to-activity-id id="__24">Invalid</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome id="__28">validUser</from-outcome>
+        <to-activity-id id="__26">DashBoardSell</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id id="__16">methodCall1</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">toRouter</from-outcome>
+        <to-activity-id id="__17">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility id="__34">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

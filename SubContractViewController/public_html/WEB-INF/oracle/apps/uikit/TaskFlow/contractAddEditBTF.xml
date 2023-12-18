@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="contractAddEditBTF">
+    <default-activity id="__1">contractLookup</default-activity>
+    <transaction id="__18">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__26">
+      <managed-bean-name id="__23">ContractBean</managed-bean-name>
+      <managed-bean-class id="__25">backing.ContractClass</managed-bean-class>
+      <managed-bean-scope id="__24">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="contrInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/contrInfo.jsff</page>
+      <train-stop id="__2">
+        <display-name id="__8">Contract Header</display-name>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <view id="partyInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/partyInfo.jsff</page>
+      <train-stop id="__3">
+        <display-name id="__19">Party Information</display-name>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <task-flow-return id="saveTF">
+      <outcome id="__7">
+        <name>saveTF</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="gaurInfo_Cancel">
+      <outcome id="__14">
+        <name>gaurInfo_Cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <view id="OtherInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/OtherInfo.jsff</page>
+      <train-stop id="__27">
+        <display-name id="__38">Line Information</display-name>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <view id="payInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/payInfo.jsff</page>
+      <train-stop id="__28">
+        <display-name id="__39">Payment Information</display-name>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <view id="gaurInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/gaurInfo.jsff</page>
+      <train-stop id="__29">
+        <display-name id="__40">Guarantee Information</display-name>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <task-flow-return id="contractInfo_Cancel">
+      <outcome id="__4">
+        <name>contractInfo_Cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="partytInfo_Cancel">
+      <outcome id="__5">
+        <name>partytInfo_Cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="LinetInfo_Cancel">
+      <outcome id="__6">
+        <name>LinetInfo_Cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="PaymeInfo_Cancel">
+      <outcome id="__9">
+        <name>PaymeInfo_Cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="contractLookup">
+      <method>#{bindings.contractLookup.execute}</method>
+      <outcome id="__51">
+        <fixed-outcome>contractLookup</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewButtonContract'}</expression>
+        <outcome id="__86">NewButtonContract</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewMethodContract'}</expression>
+        <outcome id="__87">NewMethodContract</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='edit'}</expression>
+        <outcome id="__88">edit</outcome>
+      </case>
+      <default-outcome>NewButtonContract</default-outcome>
+    </router>
+    <method-call id="onClickVariation">
+      <method>#{bindings.onClickVariation.execute}</method>
+      <outcome id="__57">
+        <fixed-outcome>onClickVariation</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__58">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__59">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <train/>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">gaurInfo</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome id="__34">save</from-outcome>
+        <to-activity-id id="__32">saveTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__36">
+        <from-outcome id="__37">gaurInfo_Cancel</from-outcome>
+        <to-activity-id id="__35">gaurInfo_Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id id="__11">contrInfo</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__15">contractInfoCancel</from-outcome>
+        <to-activity-id id="__13">contractInfo_Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id id="__17">partyInfo</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">PartyInfoCancel</from-outcome>
+        <to-activity-id id="__21">partytInfo_Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id id="__42">OtherInfo</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome id="__45">lineInfoCancel</from-outcome>
+        <to-activity-id id="__43">LinetInfo_Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id id="__47">payInfo</from-activity-id>
+      <control-flow-case id="__48">
+        <from-outcome id="__50">paymentInfoCancel</from-outcome>
+        <to-activity-id id="__49">PaymeInfo_Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__52">
+      <from-activity-id id="__53">contractLookup</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome id="__55">contractLookup</from-outcome>
+        <to-activity-id id="__56">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id id="__61">router1</from-activity-id>
+      <control-flow-case id="__63">
+        <from-outcome id="__64">NewButtonContract</from-outcome>
+        <to-activity-id id="__62">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__66">
+        <from-outcome id="__67">NewMethodContract</from-outcome>
+        <to-activity-id id="__65">onClickVariation</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__69">
+        <from-outcome id="__70">edit</from-outcome>
+        <to-activity-id id="__68">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__71">
+      <from-activity-id id="__72">CreateInsert</from-activity-id>
+      <control-flow-case id="__74">
+        <from-outcome id="__73">CreateInsert</from-outcome>
+        <to-activity-id id="__75">contrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__76">
+      <from-activity-id id="__77">onClickVariation</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome id="__80">onClickVariation</from-outcome>
+        <to-activity-id id="__78">contrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__81">
+      <from-activity-id id="__82">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__85">
+        <from-outcome id="__83">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__84">contrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

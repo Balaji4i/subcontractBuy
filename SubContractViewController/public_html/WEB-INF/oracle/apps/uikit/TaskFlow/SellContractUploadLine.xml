@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SellContractUploadLine">
+    <default-activity id="__6">clearHeaderLines</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__4">backing_WEBINF_oracle_apps_uikit_Fragments_SellContractUploadLines</managed-bean-name>
+      <managed-bean-class id="__3">subcontract.view.backing.WEBINF.oracle.apps.uikit.Fragments.SellContractUploadLines</managed-bean-class>
+      <managed-bean-scope id="__2">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1WEB-INF/oracle/apps/uikit/Fragments/SellContractUploadLines.jsff-->
+    </managed-bean>
+    <managed-bean id="__9">
+      <managed-bean-name id="__8">backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines</managed-bean-name>
+      <managed-bean-class id="__7">subcontract.view.backing.WEBINF.oracle.apps.uikit.Fragments.SellConUploadLines</managed-bean-class>
+      <managed-bean-scope id="__10">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1WEB-INF/oracle/apps/uikit/Fragments/SellConUploadLines.jsff-->
+    </managed-bean>
+    <view id="SellConUploadLines">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/SellConUploadLines.jsff</page>
+    </view>
+    <method-call id="clearHeaderLines">
+      <method>#{bindings.clearHeaderLines.execute}</method>
+      <outcome id="__1">
+        <fixed-outcome>clearHeaderLines</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__12">clearHeaderLines</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__13">clearHeaderLines</from-outcome>
+        <to-activity-id id="__15">SellConUploadLines</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

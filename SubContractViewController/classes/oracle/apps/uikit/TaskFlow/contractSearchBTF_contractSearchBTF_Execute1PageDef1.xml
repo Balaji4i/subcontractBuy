@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="contractSearchBTF_contractSearchBTF_Execute1PageDef1"
+                Package="oracle.apps.uikit.TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="applicationSearchROVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="applicationSearchROVO1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="applicationSearchROVO1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

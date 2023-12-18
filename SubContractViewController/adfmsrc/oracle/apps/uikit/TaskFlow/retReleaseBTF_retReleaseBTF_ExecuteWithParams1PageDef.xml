@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="retReleaseBTF_retReleaseBTF_ExecuteWithParams1PageDef"
+                Package="oracle.apps.uikit.TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XxscRetReleaseHeadersVO2_1" RangeSize="25"
+              DataControl="retReleaseAMDataControl"
+              id="XxscRetReleaseHeadersVO2_1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XxscRetReleaseHeadersVO2_1Iterator"
+            id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BV_RETREL_ID" NDValue="#{sessionScope.retRelID}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,2077 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxscPayApplHeadersVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="XxscPayApplHeadersEO.APPL_HEADER_ID, 
+       XxscPayApplHeadersEO.CONT_HEADER_ID, 
+       XxscPayApplHeadersEO.VERSION, 
+       XxscPayApplHeadersEO.DATA_SET_ID, 
+       XxscPayApplHeadersEO.FUNC_ID, 
+       XxscPayApplHeadersEO.APPLICATION_NUMBER, 
+       XxscPayApplHeadersEO.APPLICATION_DATE, 
+       XxscPayApplHeadersEO.PAYMENT_TYPE, 
+       XxscPayApplHeadersEO.PAYMENT_TERM_ID, 
+       XxscPayApplHeadersEO.PAYMENT_TERM, 
+       XxscPayApplHeadersEO.PAYMENT_DUE_DATE, 
+       XxscPayApplHeadersEO.APPLICATION_STATUS, 
+       XxscPayApplHeadersEO.CONTRA_CHARGES, 
+       XxscPayApplHeadersEO.RET_REL_PERCENT, 
+       XxscPayApplHeadersEO.CUR_APPLICATION, 
+       XxscPayApplHeadersEO.CUR_ADV_REC, 
+       XxscPayApplHeadersEO.CUR_RET, 
+       XxscPayApplHeadersEO.CUR_RET_REL, 
+       XxscPayApplHeadersEO.CUR_PAY_AMOUNT, 
+       XxscPayApplHeadersEO.COMMENTS, 
+       XxscPayApplHeadersEO.APPROVAL_STATUS, 
+       XxscPayApplHeadersEO.ORG_ID, 
+       XxscPayApplHeadersEO.OBJECT_VERSION_NUMBER, 
+       XxscPayApplHeadersEO.ATTRIBUTE_CATEGORY, 
+       XxscPayApplHeadersEO.ATTRIBUTE1, 
+       XxscPayApplHeadersEO.ATTRIBUTE2, 
+       XxscPayApplHeadersEO.ATTRIBUTE3, 
+       XxscPayApplHeadersEO.ATTRIBUTE4, 
+       XxscPayApplHeadersEO.ATTRIBUTE5, 
+       XxscPayApplHeadersEO.ATTRIBUTE6, 
+       XxscPayApplHeadersEO.ATTRIBUTE7, 
+       XxscPayApplHeadersEO.ATTRIBUTE8, 
+       XxscPayApplHeadersEO.ATTRIBUTE9, 
+       XxscPayApplHeadersEO.ATTRIBUTE10, 
+       XxscPayApplHeadersEO.CREATED_BY, 
+       XxscPayApplHeadersEO.CREATION_DATE, 
+       XxscPayApplHeadersEO.LAST_UPDATED_BY, 
+       XxscPayApplHeadersEO.LAST_UPDATE_DATE, 
+       XxscPayApplHeadersEO.LAST_UPDATE_LOGIN, 
+       XxscPayApplHeadersEO.PREV_APPLICATION, 
+       XxscPayApplHeadersEO.PREV_ADV_REC, 
+       XxscPayApplHeadersEO.PREV_RET, 
+       XxscPayApplHeadersEO.PREV_PAY_AMOUNT, 
+       XxscPayApplHeadersEO.TOTAL_ADV_AMOUNT, 
+       XxscPayApplHeadersEO.BALANCE_ADV_REC, 
+       XxscPayApplHeadersEO.BALANCE_RET, 
+       XxscPayApplHeadersEO.TOTAL_RET, 
+       XxscPayApplHeadersEO.SUPPLIER_INVOICE_DATE, 
+       XxscPayApplHeadersEO.SUPPLIER_INVOICE_NUM, 
+       XxscPayApplHeadersEO.APP_STATUS, 
+       XxscPayApplHeadersEO.TOTAL_MATERIAL_ADV_AMOUNT, 
+       XxscPayApplHeadersEO.BAL_CONT_AMT, 
+       XxscPayApplHeadersEO.CUM_ADV_REC, 
+       XxscPayApplHeadersEO.CUM_APPLICATION, 
+       XxscPayApplHeadersEO.CUM_RET, 
+       XxscPayApplHeadersEO.TOTAL_MAT_ADV_AMOUNT, 
+       XxscPayApplHeadersEO.CUR_MAT_ADV_REC, 
+       XxscPayApplHeadersEO.CUM_MAT_ADV_REC, 
+       XxscPayApplHeadersEO.BAL_MAT_ADV_REC, 
+       XxscPayApplHeadersEO.PREV_MAT_ADV_AMT, 
+       XxscPayApplHeadersEO.APPL_PAY_TERM, 
+       XxscPayApplHeadersEO.APPL_PAY_TERM_ID, 
+       XxscPayApplHeadersEO.CURPAYTAXAMOUNT, 
+       XxscPayApplHeadersEO.TAXRATE, 
+       XxscPayApplHeadersEO.CONTRA_CHARGES_DESC, 
+       XxscPayApplHeadersEO.PENALTY_CHARGES, 
+       XxscPayApplHeadersEO.PENALTY_CHARGES_DESC, 
+       XxscPayApplHeadersEO.MAT_ADV_REC_DESC, 
+       XxscPayApplHeadersEO.MAT_ON_SITE, 
+       XxscPayApplHeadersEO.MAT_ON_SITE_DESC, 
+       XxscPayApplHeadersEO.CURADVRECPER, 
+       XxscPayApplHeadersEO.CURMATADVRECPER, 
+       XxscPayApplHeadersEO.CURRETPER, 
+       XxscPayApplHeadersEO.FLOW_LEVEL, 
+       XxscPayApplHeadersEO.FLOW_STATUS, 
+       XxscPayApplHeadersEO.FLOW_WITH, 
+       XxscPayApplHeadersEO.PREV_CONTRA_CHARGES, 
+       XxscPayApplHeadersEO.PREV_PENALTY_CHARGES, 
+       XxscPayApplHeadersEO.PREV_MATERIAL_REC, 
+       XxscPayApplHeadersEO.MAT_ON_SITE_REC, 
+       XxscPayApplHeadersEO.MAT_ON_SITE_REC_DESC, 
+       XxscPayApplHeadersEO.CUR_MAT_ON_SITE_REC, 
+       XxscPayApplHeadersEO.USER_GRP_ID, 
+       XxscPayApplHeadersEO.CUR_OTH_CHARGE, 
+       XxscPayApplHeadersEO.PREV_OTH_CHARGE, 
+       XxscPayApplHeadersEO.TOT_OTH_CHARGE, 
+       XxscPayApplHeadersEO.CUR_RET_REL_PER, 
+       XxscPayApplHeadersEO.PER_RET_REL, 
+       XxscPayApplHeadersEO.CUMM_AMT"
+  FromList="XXSC_PAY_APPL_HEADERS XxscPayApplHeadersEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="BV_APPID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="businessUnitROVA"
+    ViewObjectName="ROVO.businessUnitROVO"
+    RowLevelBinds="false"/>
+  <ViewAccessor
+    Name="contractNumSell_SearchROVA"
+    ViewObjectName="ROVO.contractNumSell_SearchROVO"
+    RowLevelBinds="false">
+    <ViewCriteriaUsage
+      Name="filterByActive"
+      FullName="ROVO.contractNumSell_SearchROVO.filterByActive"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="contractNumSell_SearchROVA_E"
+    ViewObjectName="ROVO.contractNumSell_SearchROVO">
+    <ViewCriteriaUsage
+      Name="findByCID"
+      FullName="ROVO.contractNumSell_SearchROVO.findByCID"/>
+    <ParameterMap>
+      <PIMap Variable="BV_CID">
+        <TransientExpression><![CDATA[ContHeaderId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="PaymentType_STATVO1"
+    ViewObjectName="StaticVO.PaymentType_STATVO"
+    RowLevelBinds="false"/>
+  <ViewAccessor
+    Name="CustomerNameROVO1"
+    ViewObjectName="ROVO.CustomerNameROVO">
+    <ParameterMap>
+      <PIMap Variable="P_HEADER_ID">
+        <TransientExpression><![CDATA[ContHeaderId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_VERSION">
+        <TransientExpression><![CDATA[Version]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ApplicationLocationROVO1"
+    ViewObjectName="ROVO.ApplicationLocationROVO">
+    <ParameterMap>
+      <PIMap Variable="P_HEADER_ID">
+        <TransientExpression><![CDATA[ContHeaderId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="paymentTypeROVO1"
+    ViewObjectName="ROVO.paymentTypeROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="apprStatusROVA"
+    ViewObjectName="ROVO.apprStatusROVO"
+    RowLevelBinds="false"/>
+  <ViewAccessor
+    Name="contractStatusROVA"
+    ViewObjectName="ROVO.contractStatusROVO"
+    RowLevelBinds="false"/>
+  <ViewAccessor
+    Name="paymentTermROVA"
+    ViewObjectName="ROVO.paymentTermROVO"
+    RowLevelBinds="false"/>
+  <ViewAccessor
+    Name="Adv_VA"
+    ViewObjectName="ROVO.PrevAdv_ROVO">
+    <ParameterMap>
+      <PIMap Variable="p_con_id">
+        <TransientExpression><![CDATA[ContHeaderId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="p_ver">
+        <TransientExpression><![CDATA[Version]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_OrgId"
+    ListVOName="businessUnitROVA"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BuId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BuName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Trans_ContractNumber"
+    ListVOName="contractNumSell_SearchROVA"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Trans_ContractNumber_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Trans_ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ContHeaderId"/>
+      <Item Value="OrgId"/>
+      <Item Value="Version"/>
+      <Item Value="PaymentTermId"/>
+      <Item Value="PaymentTerm"/>
+      <Item Value="Trans_ProjectNumber"/>
+      <Item Value="Trans_ProjectName"/>
+      <Item Value="Trans_ContractName"/>
+      <Item Value="Trans_Advan_Rec_Per"/>
+      <Item Value="Trans_Advan_Recovery"/>
+      <Item Value="Trans_Retension"/>
+      <Item Value="Trans_Retension_Per"/>
+      <Item Value="Trans_Variation"/>
+      <Item Value="Trans_Revis_Cont_Amount"/>
+      <Item Value="Trans_Contract_Amount"/>
+      <Item Value="Trans_SupplierName"/>
+      <Item Value="Trans_SupplierSite"/>
+      <Item Value="MaterialAdvancePer"/>
+      <Item Value="MaterialAdvanceAmt"/>
+      <Item Value="Trans_Penalty"/>
+      <Item Value="Trans_PenaltyAmt"/>
+      <Item Value="Trans_Prov"/>
+      <Item Value="Cont_Adv_Recovery"/>
+      <Item Value="Cont_Mat_Recovery"/>
+      <Item Value="Curadvrecper"/>
+      <Item Value="Curmatadvrecper"/>
+      <Item Value="Curretper"/>
+      <Item Value="Trans_ProjectID"/>
+      <Item Value="ContactPayTerm"/>
+      <Item Value="Trans_PaymentTermType"/>
+      <Item Value="ApplPayTerm"/>
+      <Item Value="ApplPayTermId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractNum"/>
+      <Item Value="ContHeaderId"/>
+      <Item Value="OrgId"/>
+      <Item Value="Version"/>
+      <Item Value="PaymentTermId"/>
+      <Item Value="PaymentTerm"/>
+      <Item Value="ProjectNumber"/>
+      <Item Value="ProjectName"/>
+      <Item Value="ContractName"/>
+      <Item Value="AdvPercent"/>
+      <Item Value="AdvAmount"/>
+      <Item Value="RetenPercent"/>
+      <Item Value="RetenAmount"/>
+      <Item Value="VariationAmount"/>
+      <Item Value="RevisedContractAmount"/>
+      <Item Value="ContractAmount"/>
+      <Item Value="VendorName"/>
+      <Item Value="VendorSiteCode"/>
+      <Item Value="MatOnsitePercent"/>
+      <Item Value="MaterialOnSite"/>
+      <Item Value="PenaltyPercent"/>
+      <Item Value="PenaltyAmount"/>
+      <Item Value="ProvisionalSum"/>
+      <Item Value="AdvRecoveryPercent"/>
+      <Item Value="MatOnsiteRecPercent"/>
+      <Item Value="AdvRecoveryPercent"/>
+      <Item Value="MatOnsiteRecPercent"/>
+      <Item Value="RetenPercent"/>
+      <Item Value="ProjectId"/>
+      <Item Value="CertTerm"/>
+      <Item Value="PaymentTermType"/>
+      <Item Value="PaymentTerm"/>
+      <Item Value="PaymentTermId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractName"/>
+      <Item Value="ContractNum"/>
+      <Item Value="IntentDisp"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="searchSellContractNumber"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PaymentType"
+    ListVOName="paymentTypeROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PaymentType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValueName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValueNameDisp"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ApplicationStatus"
+    ListVOName="contractStatusROVA"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ApplicationStatus"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValueName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValueNameDisp"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ApprovalStatus"
+    ListVOName="apprStatusROVA"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ApprovalStatus"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupValueName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LookupValueNameDisp"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ApplPayTerm"
+    ListVOName="paymentTermROVA"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ApplPayTerm"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ApplPayTermId"/>
+      <Item Value="due_days"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+      <Item Value="TermId"/>
+      <Item Value="DueDays"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxscPayApplHeadersEO"
+    Entity="entity.XxscPayApplHeadersEO"/>
+  <ViewAttribute
+    Name="ApplHeaderId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApplHeaderId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPL_HEADER_ID"/>
+  <ViewAttribute
+    Name="ContHeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContHeaderId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CONT_HEADER_ID">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Version"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Version"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="VERSION"/>
+  <ViewAttribute
+    Name="DataSetId"
+    PrecisionRule="true"
+    EntityAttrName="DataSetId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="DATA_SET_ID"/>
+  <ViewAttribute
+    Name="FuncId"
+    PrecisionRule="true"
+    EntityAttrName="FuncId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="FUNC_ID"/>
+  <ViewAttribute
+    Name="ApplicationNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationNumber"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPLICATION_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ApplicationNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplicationDate"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationDate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPLICATION_DATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentType"
+    LOVName="LOV_PaymentType"
+    PrecisionRule="true"
+    EntityAttrName="PaymentType"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PAYMENT_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PaymentType_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentTermId"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTermId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PAYMENT_TERM_ID">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentTerm"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTerm"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PAYMENT_TERM">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PaymentTerm_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentDueDate"
+    PrecisionRule="true"
+    EntityAttrName="PaymentDueDate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PAYMENT_DUE_DATE">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PaymentDueDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplicationStatus"
+    LOVName="LOV_ApplicationStatus"
+    PrecisionRule="true"
+    DefaultValue="TRNS_DRAFT"
+    EntityAttrName="ApplicationStatus"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPLICATION_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ApplicationStatus_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContraCharges"
+    PrecisionRule="true"
+    EntityAttrName="ContraCharges"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CONTRA_CHARGES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ContraCharges_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RetRelPercent"
+    PrecisionRule="true"
+    EntityAttrName="RetRelPercent"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="RET_REL_PERCENT"/>
+  <ViewAttribute
+    Name="CurApplication"
+    PrecisionRule="true"
+    EntityAttrName="CurApplication"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_APPLICATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.CurApplication_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="CurAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_ADV_REC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.CurAdvRec_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurRet"
+    PrecisionRule="true"
+    EntityAttrName="CurRet"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_RET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.CurRet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurRetRel"
+    PrecisionRule="true"
+    EntityAttrName="CurRetRel"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_RET_REL"/>
+  <ViewAttribute
+    Name="CurPayAmount"
+    PrecisionRule="true"
+    EntityAttrName="CurPayAmount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_PAY_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.CurPayAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="COMMENTS"/>
+  <ViewAttribute
+    Name="ApprovalStatus"
+    LOVName="LOV_ApprovalStatus"
+    PrecisionRule="true"
+    DefaultValue="TRNS_DRAFT"
+    EntityAttrName="ApprovalStatus"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPROVAL_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ApprovalStatus_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgId"
+    LOVName="LOV_OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ORG_ID">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.OrgId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="AttributeCategory"
+    PrecisionRule="true"
+    EntityAttrName="AttributeCategory"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE_CATEGORY"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE1"/>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE2"/>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE4"/>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE5"/>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE6"/>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE7"/>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE8"/>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE9"/>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="ATTRIBUTE10"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="LAST_UPDATE_LOGIN"/>
+  <ViewAttribute
+    Name="Trans_ProjectNumber"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ProjectNumber');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_ProjectNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_ProjectName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ProjectName');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_ProjectName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_ContractNumber"
+    LOVName="LOV_Trans_ContractNumber"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ContractNum');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_ContractNumber_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_ContractName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ContractName');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_ContractName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Advan_Rec_Per"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null && contractNumSell_SearchROVA_E.first()!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('AdvRecoveryPercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Advan_Rec_Per_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Advan_Recovery"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('AdvAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Retension"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('RetenPercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Retension_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Retension_Per"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('RetenAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Retension_Per_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Variation"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('VariationAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Variation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Revis_Cont_Amount"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('RevisedContractAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Revis_Cont_Amount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Contract_Amount"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ContractAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Contract_Amount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_customer_name"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null && CustomerNameROVO1.first()!=null){
+return CustomerNameROVO1.first().getAttribute('AccountName');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_customer_name_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Site_code"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null && ApplicationLocationROVO1.first()!=null){
+return ApplicationLocationROVO1.first().getAttribute('Location');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Site_code_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevApplication"
+    PrecisionRule="true"
+    EntityAttrName="PrevApplication"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_APPLICATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PrevApplication_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="PrevAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_ADV_REC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PrevAdvRec_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevRet"
+    PrecisionRule="true"
+    EntityAttrName="PrevRet"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_RET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PrevRet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevPayAmount"
+    PrecisionRule="true"
+    EntityAttrName="PrevPayAmount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_PAY_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PrevPayAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalAdvAmount"
+    PrecisionRule="true"
+    EntityAttrName="TotalAdvAmount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TOTAL_ADV_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.TotalAdvAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BalanceAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="BalanceAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="BALANCE_ADV_REC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.BalanceAdvRec_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BalanceRet"
+    PrecisionRule="true"
+    EntityAttrName="BalanceRet"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="BALANCE_RET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.BalanceRet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalRet"
+    PrecisionRule="true"
+    EntityAttrName="TotalRet"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TOTAL_RET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.TotalRet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_SupplierName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('VendorName');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_SupplierName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_SupplierSite"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('VendorSiteCode');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_SupplierSite_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SupplierInvoiceDate"
+    PrecisionRule="true"
+    EntityAttrName="SupplierInvoiceDate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="SUPPLIER_INVOICE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.SupplierInvoiceDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SupplierInvoiceNum"
+    PrecisionRule="true"
+    EntityAttrName="SupplierInvoiceNum"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="SUPPLIER_INVOICE_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.SupplierInvoiceNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AppStatus"
+    PrecisionRule="true"
+    DefaultValue="N"
+    EntityAttrName="AppStatus"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APP_STATUS"/>
+  <ViewAttribute
+    Name="MaterialAdvancePer"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('MatOnsitePercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.MaterialAdvancePer_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MaterialAdvanceAmt"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('MaterialOnSite');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalMaterialAdvAmount"
+    PrecisionRule="true"
+    EntityAttrName="TotalMaterialAdvAmount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TOTAL_MATERIAL_ADV_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.TotalMaterialAdvAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Penalty"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('LiqDamagePercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Penalty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_PenaltyAmt"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('LiqDamageAmount');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Prov"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ProvisionalSum');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_Prov_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BalContAmt"
+    PrecisionRule="true"
+    EntityAttrName="BalContAmt"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="BAL_CONT_AMT"/>
+  <ViewAttribute
+    Name="CumAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="CumAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUM_ADV_REC"/>
+  <ViewAttribute
+    Name="CumApplication"
+    PrecisionRule="true"
+    EntityAttrName="CumApplication"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUM_APPLICATION"/>
+  <ViewAttribute
+    Name="CumRet"
+    PrecisionRule="true"
+    EntityAttrName="CumRet"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUM_RET"/>
+  <ViewAttribute
+    Name="TotalMatAdvAmount"
+    PrecisionRule="true"
+    EntityAttrName="TotalMatAdvAmount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TOTAL_MAT_ADV_AMOUNT"/>
+  <ViewAttribute
+    Name="CurMatAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="CurMatAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_MAT_ADV_REC"/>
+  <ViewAttribute
+    Name="CumMatAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="CumMatAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUM_MAT_ADV_REC"/>
+  <ViewAttribute
+    Name="BalMatAdvRec"
+    PrecisionRule="true"
+    EntityAttrName="BalMatAdvRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="BAL_MAT_ADV_REC"/>
+  <ViewAttribute
+    Name="PrevMatAdvAmt"
+    PrecisionRule="true"
+    EntityAttrName="PrevMatAdvAmt"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_MAT_ADV_AMT"/>
+  <ViewAttribute
+    Name="Cont_Adv_Recovery"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('AdvRecoveryPercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Cont_Adv_Recovery_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Cont_Mat_Recovery"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('MatOnsiteRecPercent');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Cont_Mat_Recovery_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Cont_Ret_Recovery"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="ApplPayTerm"
+    LOVName="LOV_ApplPayTerm"
+    PrecisionRule="true"
+    EntityAttrName="ApplPayTerm"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPL_PAY_TERM">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ApplPayTerm_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplPayTermId"
+    PrecisionRule="true"
+    EntityAttrName="ApplPayTermId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="APPL_PAY_TERM_ID"/>
+  <ViewAttribute
+    Name="due_days"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="Curpaytaxamount"
+    PrecisionRule="true"
+    EntityAttrName="Curpaytaxamount"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CURPAYTAXAMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Curpaytaxamount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Taxrate"
+    PrecisionRule="true"
+    EntityAttrName="Taxrate"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TAXRATE"/>
+  <ViewAttribute
+    Name="ContraChargesDesc"
+    PrecisionRule="true"
+    EntityAttrName="ContraChargesDesc"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CONTRA_CHARGES_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.ContraChargesDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PenaltyCharges"
+    PrecisionRule="true"
+    EntityAttrName="PenaltyCharges"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PENALTY_CHARGES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PenaltyCharges_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PenaltyChargesDesc"
+    PrecisionRule="true"
+    EntityAttrName="PenaltyChargesDesc"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PENALTY_CHARGES_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.PenaltyChargesDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContactPayTerm"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('CertTerm');
+}
+else{
+return null;
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MatAdvRecDesc"
+    PrecisionRule="true"
+    EntityAttrName="MatAdvRecDesc"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="MAT_ADV_REC_DESC"/>
+  <ViewAttribute
+    Name="MatOnSite"
+    PrecisionRule="true"
+    EntityAttrName="MatOnSite"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="MAT_ON_SITE"/>
+  <ViewAttribute
+    Name="MatOnSiteDesc"
+    PrecisionRule="true"
+    EntityAttrName="MatOnSiteDesc"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="MAT_ON_SITE_DESC"/>
+  <ViewAttribute
+    Name="Advance_TRANS"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[false]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(Adv_VA.first()!=null && ContHeaderId != null)
+{
+retrun Adv_VA.first().getAttribute("Adv");
+}
+else
+{
+return null;
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Curadvrecper"
+    PrecisionRule="true"
+    EntityAttrName="Curadvrecper"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CURADVRECPER">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Curadvrecper_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Curmatadvrecper"
+    PrecisionRule="true"
+    EntityAttrName="Curmatadvrecper"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CURMATADVRECPER">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Curmatadvrecper_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Curretper"
+    PrecisionRule="true"
+    EntityAttrName="Curretper"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CURRETPER">
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Curretper_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="totRet_TRNS"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="BIGINT"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevRet!=null ? PrevRet : 0)+(CurRet!=null ? CurRet : 0)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CurRet"/>
+      <Item
+        Value="PrevRet"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="totAdv_TRNS"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevAdvRec!=null ? PrevAdvRec : 0)+(CurAdvRec!=null ? CurAdvRec : 0)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CurAdvRec"/>
+      <Item
+        Value="PrevAdvRec"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="totCont_TRNS"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevApplication!=null ? PrevApplication : 0)+(CurApplication!=null ? CurApplication : 0)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CurApplication"/>
+      <Item
+        Value="PrevApplication"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FlowLevel"
+    PrecisionRule="true"
+    EntityAttrName="FlowLevel"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="FLOW_LEVEL"/>
+  <ViewAttribute
+    Name="FlowStatus"
+    PrecisionRule="true"
+    EntityAttrName="FlowStatus"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="FLOW_STATUS"/>
+  <ViewAttribute
+    Name="FlowWith"
+    PrecisionRule="true"
+    EntityAttrName="FlowWith"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="FLOW_WITH"/>
+  <ViewAttribute
+    Name="PrevContraCharges"
+    PrecisionRule="true"
+    EntityAttrName="PrevContraCharges"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_CONTRA_CHARGES"/>
+  <ViewAttribute
+    Name="PrevPenaltyCharges"
+    PrecisionRule="true"
+    EntityAttrName="PrevPenaltyCharges"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_PENALTY_CHARGES"/>
+  <ViewAttribute
+    Name="PrevMaterialRec"
+    PrecisionRule="true"
+    EntityAttrName="PrevMaterialRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_MATERIAL_REC"/>
+  <ViewAttribute
+    Name="Trans_Tot_Back_charge"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevContraCharges!=null ? PrevContraCharges : 0)+(ContraCharges!=null ? ContraCharges : 0)]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Tot_Contra_charge"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevPenaltyCharges!=null ? PrevPenaltyCharges : 0)+(PenaltyCharges!=null ? PenaltyCharges : 0)]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_Tot_Mat_Rec"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(PrevMaterialRec!=null ? PrevMaterialRec : 0)+(CurMatOnSiteRec!=null ? CurMatOnSiteRec : 0)]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MatOnSiteRec"
+    PrecisionRule="true"
+    EntityAttrName="MatOnSiteRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="MAT_ON_SITE_REC"/>
+  <ViewAttribute
+    Name="MatOnSiteRecDesc"
+    PrecisionRule="true"
+    EntityAttrName="MatOnSiteRecDesc"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="MAT_ON_SITE_REC_DESC"/>
+  <ViewAttribute
+    Name="CurMatOnSiteRec"
+    PrecisionRule="true"
+    EntityAttrName="CurMatOnSiteRec"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_MAT_ON_SITE_REC"/>
+  <ViewAttribute
+    Name="UserGrpId"
+    PrecisionRule="true"
+    EntityAttrName="UserGrpId"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="USER_GRP_ID"/>
+  <ViewAttribute
+    Name="Trans_ProjectID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ProjectId');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ContHeaderId"/>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurOthCharge"
+    PrecisionRule="true"
+    EntityAttrName="CurOthCharge"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_OTH_CHARGE"/>
+  <ViewAttribute
+    Name="PrevOthCharge"
+    PrecisionRule="true"
+    EntityAttrName="PrevOthCharge"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PREV_OTH_CHARGE"/>
+  <ViewAttribute
+    Name="TotOthCharge"
+    PrecisionRule="true"
+    EntityAttrName="TotOthCharge"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="TOT_OTH_CHARGE"/>
+  <ViewAttribute
+    Name="CurRetRelPer"
+    PrecisionRule="true"
+    EntityAttrName="CurRetRelPer"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUR_RET_REL_PER"/>
+  <ViewAttribute
+    Name="PerRetRel"
+    PrecisionRule="true"
+    EntityAttrName="PerRetRel"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="PER_RET_REL"/>
+  <ViewAttribute
+    Name="Trans_PaymentTermType"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('PaymentTermType');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.XxscPayApplHeadersVO.Trans_PaymentTermType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransProjectId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(ContHeaderId!=null){
+return contractNumSell_SearchROVA_E.first().getAttribute('ProjectId');
+}
+else{
+return null;
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Trans_ContractNumber"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CummAmt"
+    PrecisionRule="true"
+    EntityAttrName="CummAmt"
+    EntityUsage="XxscPayApplHeadersEO"
+    AliasName="CUMM_AMT"/>
+  <ViewCriteria
+    Name="findById"
+    ViewObjectName="view.XxscPayApplHeadersVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow35"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ApplHeaderId"
+        ViewAttribute="ApplHeaderId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BV_APPID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="XxscPayApplLinesVO"
+    ViewLink="viewLink.PayApplLineHdrFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxscPayApplOthChargesVO"
+    ViewLink="viewLink.appHdrAppChargeVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxscPayApplAdvanceDtlsVO"
+    ViewLink="viewLink.PayAdvanceVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxscPayApplAdvRecDtlsVO"
+    ViewLink="viewLink.PayRecVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PreAppOtherChargeROVO"
+    ViewLink="viewLink.appHdrToPreAppOtherVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

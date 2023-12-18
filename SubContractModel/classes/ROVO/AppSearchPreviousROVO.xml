@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppSearchPreviousROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.AppSearchPreviousROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BV_CONT_HRDID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BV_VER"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BV_CONT_LNEID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="APP_HRDID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select xxsc_contract_pkg.get_appl_prev_qty (:BV_CONT_HRDID,:BV_VER,:BV_CONT_LNEID,:APP_HRDID) as appl_prev_qty, 
+       xxsc_contract_pkg.get_appl_prev_perc(:BV_CONT_HRDID,:BV_VER,:BV_CONT_LNEID,:APP_HRDID) as appl_prev_perc,
+	   xxsc_contract_pkg.get_appl_prev_amount(:BV_CONT_HRDID,:BV_VER,:BV_CONT_LNEID,:APP_HRDID) as appl_prev_amount
+from dual]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="ApplPrevQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="APPL_PREV_QTY"
+    Expression="APPL_PREV_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplPrevPerc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="APPL_PREV_PERC"
+    Expression="APPL_PREV_PERC"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplPrevAmount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="APPL_PREV_AMOUNT"
+    Expression="APPL_PREV_AMOUNT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

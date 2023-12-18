@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1" binding="#{backingBeanScope.retSearch.pt1}">
+    <f:facet name="pageContents">
+      <af:panelBox text="Retention Release" id="pb1" showDisclosure="false"
+                   inlineStyle="height:550.0px; border-color:transparent;"
+                   binding="#{backingBeanScope.retSearch.pb1}">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout id="pgl1" layout="vertical"
+                             binding="#{backingBeanScope.retSearch.pgl1}">
+          <af:toolbar id="t1" binding="#{backingBeanScope.retSearch.t1}">
+            <af:inputText label="Search Retention Release" id="it1" autoSubmit="true"
+                          usage="search"
+                          placeholder="Retention Release Number.."
+                          binding="#{backingBeanScope.retSearch.it1}">
+                            <af:clientListener method="submitFormRetRel" type="keyPress"/>
+                            </af:inputText>
+            <af:commandButton text="Search" id="cb1"
+                              binding="#{backingBeanScope.retSearch.cb1}"
+                              actionListener="#{backingBeanScope.retSearch.quickSearch}"/>
+            <af:spacer width="448" height="10" id="s1"
+                       binding="#{backingBeanScope.retSearch.s1}"/>
+            <af:commandButton text="Create Retention Release" id="cb2" action="add"
+                              binding="#{backingBeanScope.retSearch.cb2}">
+              <af:setPropertyListener from="add" to="#{sessionScope.button}"
+                                      type="action"/>
+            </af:commandButton>
+          </af:toolbar>
+          <af:spacer width="10" height="10" id="s2"
+                     binding="#{backingBeanScope.retSearch.s2}"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                              inlineStyle="height:440.0px;"
+                              binding="#{backingBeanScope.retSearch.pc1}">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.searchRetReleaseROVO1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.searchRetReleaseROVO1.rangeSize}"
+                      emptyText="#{bindings.searchRetReleaseROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.searchRetReleaseROVO1.rangeSize}" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.searchRetReleaseROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.searchRetReleaseROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      inlineStyle="height:inherit;" scrollPolicy="page"
+                      autoHeightRows="0"
+                      binding="#{backingBeanScope.retSearch.resId1}">
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelHeaderId.name}"
+                         sortable="true" headerText="RetRelHeaderId"
+                         id="resId1c1" rendered="false">
+                <af:outputText value="#{row.RetRelHeaderId}" id="ot36"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.ContHeaderId.name}"
+                         sortable="true" headerText="ContHeaderId" id="resId1c2"
+                         rendered="false">
+                <af:outputText value="#{row.ContHeaderId}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.BusinessUnit.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.BusinessUnit.label}"
+                         id="resId1c21">
+                <af:outputText value="#{row.BusinessUnit}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelNumber.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.RetRelNumber.label}"
+                         id="resId1c11" width="180">
+                <af:outputText value="#{row.RetRelNumber}" id="ot34"
+                               rendered="false"/>
+                <af:commandLink text="#{row.RetRelNumber}" id="cl1"
+                                inlineStyle="font-weight:bolder; font-size:small; color:#1367AE; "
+                                action="edit">
+                  <af:setPropertyListener from="#{bindings.RetRelHeaderId.inputValue}"
+                                          to="#{pageFlowScope.retRelID}"
+                                          type="action"/>
+                  <af:setPropertyListener to="#{sessionScope.button}"
+                                          from="edit" type="action"/>
+                </af:commandLink>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.ContractNum.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.ContractNum.label}"
+                         id="resId1c6" width="110">
+                <af:outputText value="#{row.ContractNum}" id="ot19"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.ContractName.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.ContractName.label}"
+                         id="resId1c7">
+                <af:outputText value="#{row.ContractName}" id="ot14"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelDate.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.RetRelDate.label}"
+                         id="resId1c12" width="160">
+                <af:outputText value="#{row.RetRelDate}" id="ot8">
+                  <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelType.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.RetRelType.label}"
+                         id="resId1c13" width="150" displayIndex="-1">
+                <af:outputText value="#{row.RetRelType}" id="ot37"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelAmt.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.RetRelAmt.label}"
+                         id="resId1c14" width="167">
+                <af:outputText value="#{row.RetRelAmt}" id="ot25"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.RetRelStatusDisp.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.RetRelStatusDisp.label}"
+                         id="resId1c16" width="167" rendered="false">
+                <af:outputText value="#{row.RetRelStatusDisp}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.ApprovalStatusDisp.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.ApprovalStatusDisp.label}"
+                         id="resId1c18">
+                <af:outputText value="#{row.ApprovalStatusDisp}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.searchRetReleaseROVO1.hints.Remarks.name}"
+                         sortable="true"
+                         headerText="#{bindings.searchRetReleaseROVO1.hints.Remarks.label}"
+                         id="resId1c19">
+                <af:outputText value="#{row.Remarks}" id="ot28"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+        <af:panelDrawer position="right" id="pd1" height="528" width="382"
+                        binding="#{backingBeanScope.retSearch.pd1}">
+          <af:showDetailItem id="dr1" shortDesc="Drawer 1"
+                             inlineStyle="border-color:transparent;"
+                             icon="/images/func_search_32_ena.png"
+                             binding="#{backingBeanScope.retSearch.dr1}">
+            <af:panelBox id="pb2"
+                         inlineStyle="height:510px; border-color:transparent;"
+                         binding="#{backingBeanScope.retSearch.pb2}">
+              <f:facet name="toolbar"/>
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.SearchRetReleaseQuery.queryDescriptor}"
+                        model="#{bindings.SearchRetReleaseQuery.queryModel}"
+                        queryListener="#{bindings.SearchRetReleaseQuery.processQuery}"
+                        queryOperationListener="#{bindings.SearchRetReleaseQuery.processQueryOperation}"
+                        resultComponentId="::pc1:resId1"
+                        saveQueryMode="hidden" labelAlignment="top"
+                        binding="#{backingBeanScope.retSearch.qryId1}"/>
+            </af:panelBox>
+          </af:showDetailItem>
+        </af:panelDrawer>
+      </af:panelBox>
+    </f:facet>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:retSearch-->
+</jsp:root>

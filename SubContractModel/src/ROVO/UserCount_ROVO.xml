@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserCount_ROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.UserCount_ROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BV_groupname"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BV_username"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select count(*) from xxsc_user_access where USER_ID in(
+select USER_ID from XXFND_APPR_USERS where USER_LEVEL_ID in (
+select USER_LEVEL_ID from XXFND_APPR_USER_LEVELS where USER_GRP_ID in(
+select USER_GRP_ID from XXFND_APPR_USER_GROUP where USER_GRP_NAME =:BV_groupname))) and USER_NAME=:BV_username]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Count1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="COUNT(*)"
+    Expression="COUNT(*)"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

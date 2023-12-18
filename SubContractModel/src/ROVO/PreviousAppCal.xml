@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PreviousAppCal"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.PreviousAppCal_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BV_HID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="VER"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="APP_HDR_ID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select  xxsc_contract_pkg.get_cum_Adv_rec(:BV_HID,:APP_HDR_ID,:VER) as PreAdvRec,
+        xxsc_contract_pkg.get_cum_mat_rec(:BV_HID,:APP_HDR_ID,:VER) as PreMatAdvRec,
+        xxsc_contract_pkg.get_ret_rec(:BV_HID,:APP_HDR_ID,:VER) as PreRetRec,
+        xxsc_contract_pkg.get_cum_tot_amt(:BV_HID,:APP_HDR_ID,:VER) as PrevAmount,
+xxsc_contract_pkg.get_Total_Other_Charg(:BV_HID,:APP_HDR_ID,:VER) as prevothchargeAmt
+from    dual]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Preadvrec"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="PREADVREC"
+    Expression="PREADVREC"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Prematadvrec"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PREMATADVREC"
+    Expression="PREMATADVREC"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Preretrec"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PRERETREC"
+    Expression="PRERETREC"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Prevamount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PREVAMOUNT"
+    Expression="PREVAMOUNT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Prevothchargeamt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PREVOTHCHARGEAMT"
+    Expression="PREVOTHCHARGEAMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

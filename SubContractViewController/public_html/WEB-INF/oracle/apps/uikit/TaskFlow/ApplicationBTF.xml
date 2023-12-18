@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ApplicationBTF">
+    <template-reference>
+      <document></document>
+    </template-reference>
+    <default-activity id="__1">refreshApplication</default-activity>
+    <transaction id="__22">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__11">
+      <managed-bean-name id="__21">ApplicationBean</managed-bean-name>
+      <managed-bean-class id="__10">backing.ApplicationInfo</managed-bean-class>
+      <managed-bean-scope id="__20">backingBean</managed-bean-scope>
+    </managed-bean>
+    <task-flow-return id="save">
+      <outcome id="__2">
+        <name>save</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome id="__3">
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <view id="appContInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/appContInfo.jsff</page>
+    </view>
+    <method-call id="refreshApplication">
+      <method>#{bindings.refreshApplication.execute}</method>
+      <outcome id="__4">
+        <fixed-outcome>refreshApplication</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewButtonApplication'}</expression>
+        <outcome id="__52">buttonAdd</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewMethodApplication'}</expression>
+        <outcome id="__53">buttonMethod</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='EditApplication'}</expression>
+        <outcome id="__54">editApp</outcome>
+      </case>
+      <default-outcome>buttonAdd</default-outcome>
+    </router>
+    <method-call id="createNewApplication">
+      <method>#{bindings.createNewApplication.execute}</method>
+      <outcome id="__23">
+        <fixed-outcome>createNewApplication</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__24">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__25">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">appContInfo</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">save</from-outcome>
+        <to-activity-id id="__15">save</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome id="__19">cancel</from-outcome>
+        <to-activity-id id="__18">cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id id="__6">refreshApplication</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__9">refreshApplication</from-outcome>
+        <to-activity-id id="__8">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">router1</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">buttonAdd</from-outcome>
+        <to-activity-id id="__28">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome id="__33">buttonMethod</from-outcome>
+        <to-activity-id id="__31">createNewApplication</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__36">editApp</from-outcome>
+        <to-activity-id id="__34">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id id="__38">CreateInsert</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome id="__40">CreateInsert</from-outcome>
+        <to-activity-id id="__41">appContInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__42">
+      <from-activity-id id="__43">createNewApplication</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome id="__46">createNewApplication</from-outcome>
+        <to-activity-id id="__44">appContInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__47">
+      <from-activity-id id="__48">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__50">
+        <from-outcome id="__51">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__49">appContInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

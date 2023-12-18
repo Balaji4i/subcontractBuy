@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="payInfoPageDef"
+                Package="oracle.apps.uikit.Fragments" SkipValidation="false">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscContractHeadersVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractHeadersVO1Iterator"/>
+    <iterator id="contractROVO1Iterator" Binds="contractROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscContractLinesVO1Iterator" Binds="XxscContractLinesVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="prLine_ROVO1Iterator" Binds="prLine_ROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="excelValidation_PRLineROVO1Iterator"
+              Binds="excelValidation_PRLineROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="excelValidation_ProjectTaskROVO1Iterator"
+              Binds="excelValidation_ProjectTaskROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="excelValidation_UOMROVO1Iterator"
+              Binds="excelValidation_UOMROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="excelDownloadProjectTaskROVO1Iterator"
+              Binds="excelDownloadProjectTaskROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="excelDownloadUOMROVO1Iterator" Binds="excelDownloadUOMROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="GLCurrencyCodeROVO1Iterator" Binds="GLCurrencyCodeROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscAttachmentVO1Iterator" Binds="XxscAttachmentVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscAttachmentVO2Iterator" Binds="XxscAttachmentVO2"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="FunctionROVO1Iterator" Binds="FunctionROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="MaxDeliveryLine1Iterator" Binds="MaxDeliveryLine1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="MaxLineQtyROVO1Iterator" Binds="MaxLineQtyROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="MaxLineROVO1Iterator" Binds="MaxLineROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscUserAccess1Iterator" Binds="XxscUserAccess1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscHeadDetailROVO1Iterator" Binds="XxscHeadDetailROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="LiqDamagePercent">
+      <AttrNames>
+        <Item Value="LiqDamagePercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="LiqDamageAmount">
+      <AttrNames>
+        <Item Value="LiqDamageAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="MinInterimPayment">
+      <AttrNames>
+        <Item Value="MinInterimPayment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RetenPercent">
+      <AttrNames>
+        <Item Value="RetenPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RetenAmount">
+      <AttrNames>
+        <Item Value="RetenAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RelRetenPercent">
+      <AttrNames>
+        <Item Value="RelRetenPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RelRetenAmount">
+      <AttrNames>
+        <Item Value="RelRetenAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RelRetenBalPercent">
+      <AttrNames>
+        <Item Value="RelRetenBalPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RelRetenBalAmount">
+      <AttrNames>
+        <Item Value="RelRetenBalAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="AdvPercent">
+      <AttrNames>
+        <Item Value="AdvPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="AdvAmount">
+      <AttrNames>
+        <Item Value="AdvAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="AdvRecoveryPercent">
+      <AttrNames>
+        <Item Value="AdvRecoveryPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="AdvRecoveryAmount">
+      <AttrNames>
+        <Item Value="AdvRecoveryAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="MatOnsitePercent">
+      <AttrNames>
+        <Item Value="MatOnsitePercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="MaterialOnSite">
+      <AttrNames>
+        <Item Value="MaterialOnSite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="MatOnsiteRecPercent">
+      <AttrNames>
+        <Item Value="MatOnsiteRecPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="MaterialOnSiteRec">
+      <AttrNames>
+        <Item Value="MaterialOnSiteRec"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="contractAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="contractAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="LiqDamagePercentMax">
+      <AttrNames>
+        <Item Value="LiqDamagePercentMax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="LiqDamageAmountMax">
+      <AttrNames>
+        <Item Value="LiqDamageAmountMax"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_LiqDamagePerDayWeek" id="LiqDamagePerDayWeek"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractNum">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="DefectLiabEndDate">
+      <AttrNames>
+        <Item Value="DefectLiabEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="DefectLiabPeriod">
+      <AttrNames>
+        <Item Value="DefectLiabPeriod"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_DlpPeriodCategory" id="DlpPeriodCategory"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="Relretenpercent1">
+      <AttrNames>
+        <Item Value="Relretenpercent1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="Retreltype1">
+      <AttrNames>
+        <Item Value="Retreltype1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RetRelType">
+      <AttrNames>
+        <Item Value="RetRelType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ApprovalStatus">
+      <AttrNames>
+        <Item Value="ApprovalStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="Intent">
+      <AttrNames>
+        <Item Value="Intent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContHeaderId">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="FuncId">
+      <AttrNames>
+        <Item Value="FuncId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="FlowWith">
+      <AttrNames>
+        <Item Value="FlowWith"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="FlowLevel">
+      <AttrNames>
+        <Item Value="FlowLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractStatus">
+      <AttrNames>
+        <Item Value="ContractStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractStatus1">
+      <AttrNames>
+        <Item Value="ContractStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XxscContractHeadersVO1Iterator" id="RetTaxYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="RetTaxYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XxscContractHeadersVO1Iterator" id="TaxYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="TaxYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="UserGrpId">
+      <AttrNames>
+        <Item Value="UserGrpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="PenaltyInDays">
+      <AttrNames>
+        <Item Value="PenaltyInDays"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

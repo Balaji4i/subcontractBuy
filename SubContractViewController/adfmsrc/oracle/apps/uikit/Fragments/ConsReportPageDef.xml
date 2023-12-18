@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ConsReportPageDef"
+                Package="oracle.apps.uikit.Fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="businessUnitROVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="businessUnitROVO1Iterator"/>
+    <iterator Binds="contractNum_SearchROVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="contractNum_SearchROVO1Iterator"/>
+    <iterator Binds="ProjectNumberROVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="ProjectNumberROVO1Iterator"/>
+    <iterator Binds="supplbasedReportROVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="supplbasedReportROVO1Iterator"/>
+    <iterator Binds="businessunitReportROVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="businessunitReportROVO1Iterator"/>
+    <iterator Binds="xxstgVendorsVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="xxstgVendorsVO1Iterator"/>
+    <iterator Binds="XxscPayApplHeadersVO1" RangeSize="25"
+              DataControl="applicationAMDataControl"
+              id="XxscPayApplHeadersVO1Iterator"/>
+    <iterator Binds="xxscProjectNumberReportVO1" RangeSize="25"
+              DataControl="ConsReportAMDataControl"
+              id="xxscProjectNumberReportVO1Iterator"/>
+    <iterator id="projectbasedReportROVO1Iterator"
+              Binds="projectbasedReportROVO1"
+              DataControl="ConsReportAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <list IterBinding="businessUnitROVO1Iterator" ListOperMode="navigation"
+          ListIter="businessUnitROVO1Iterator" id="businessUnitROVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="BuName"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="contractNum_SearchROVO1Iterator"
+          ListOperMode="navigation" ListIter="contractNum_SearchROVO1Iterator"
+          id="contractNum_SearchROVO1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="ProjectNumberROVO1Iterator" ListOperMode="navigation"
+          ListIter="ProjectNumberROVO1Iterator" id="ProjectNumberROVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ProjectNumber"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="supplbasedReportROVO1Iterator" ListOperMode="navigation"
+          ListIter="supplbasedReportROVO1Iterator" id="supplbasedReportROVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="VendorName"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="businessunitReportROVO1Iterator" StaticList="false"
+          Uses="LOV_SupplNameTrans" id="SupplNameTrans" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="xxstgVendorsVO1Iterator" StaticList="false"
+          Uses="LOV_vendorNameTrans" id="vendorNameTrans" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <listOfValues StaticList="false" IterBinding="XxscPayApplHeadersVO1Iterator"
+                  Uses="LOV_Trans_ContractNumber" id="Trans_ContractNumber"/>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_ProjectNumber">
+      <AttrNames>
+        <Item Value="Trans_ProjectNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="businessunitReportROVO1Iterator" id="BuId">
+      <AttrNames>
+        <Item Value="BuId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxstgVendorsVO1Iterator" id="VendorId">
+      <AttrNames>
+        <Item Value="VendorId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="businessunitReportROVO1Iterator"
+                  Uses="LOV_BuNameTrans" id="BuNameTrans"/>
+    <listOfValues StaticList="false" IterBinding="xxstgVendorsVO1Iterator"
+                  Uses="LOV_vendorNameTrans" id="vendorNameTrans1"/>
+    <listOfValues StaticList="false"
+                  IterBinding="xxscProjectNumberReportVO1Iterator"
+                  Uses="LOV_ProjectNumber" id="ProjectNumber"/>
+    <list IterBinding="xxscProjectNumberReportVO1Iterator" StaticList="false"
+          Uses="LOV_ContractNum" id="ContractNum" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <listOfValues StaticList="false"
+                  IterBinding="xxscProjectNumberReportVO1Iterator"
+                  Uses="LOV_projectNumTrans" id="projectNumTrans"/>
+    <listOfValues StaticList="false"
+                  IterBinding="xxscProjectNumberReportVO1Iterator"
+                  Uses="LOV_ContractNum" id="ContractNum1"/>
+  </bindings>
+</pageDefinition>

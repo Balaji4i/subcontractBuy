@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SellContract_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="AppModule.SellContract_AMImpl"
+  ComponentInterface="AppModule.common.SellContract_AM"
+  ClientProxyName="AppModule.client.SellContract_AMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="XxstgSellContractHeaders_VO1"
+    ViewObjectName="view.XxstgSellContractHeaders_VO"/>
+  <ViewUsage
+    Name="XxstgSellContractLines_VO1"
+    ViewObjectName="view.XxstgSellContractLines_VOs"/>
+  <ViewUsage
+    Name="SellContractLine_ROVO1"
+    ViewObjectName="ROVO.SellContractLine_ROVO"/>
+    <ViewUsage
+    Name="ContractLineType_ROVO1"
+    ViewObjectName="ROVO.ContractLineType_ROVO"/>
+  <ViewUsage
+    Name="FunctionROVO1"
+    ViewObjectName="ROVO.FunctionROVO"/>
+  <ViewUsage
+    Name="LineNumberROVO1"
+    ViewObjectName="ROVO.LineNumberROVO"/>
+  <ViewUsage
+    Name="ProjectNumberROVO1"
+    ViewObjectName="ROVO.ProjectNumberROVO"/>
+  <ViewUsage
+    Name="DeleteSellContractLines_VO1"
+    ViewObjectName="view.DeleteSellContractLines_VO"/>
+  <ViewUsage
+    Name="XxstgSellContractLines_VOs1"
+    ViewObjectName="view.XxstgSellContractLines_VOs"/>
+  <ClientInterface>
+    <Method
+      Name="filterContractLineByConNum">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="conNum"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="clearHeaderLines">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+  <ClientInterface>
+    <Method
+      Name="filterContractLineByConNum">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="conNum"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="clearHeaderLines">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

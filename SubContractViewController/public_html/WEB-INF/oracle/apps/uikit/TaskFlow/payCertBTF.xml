@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="payCertBTF">
+    <default-activity id="__24">refreshCertification</default-activity>
+    <transaction id="__14">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__25">
+      <managed-bean-name id="__26">CertificationBean</managed-bean-name>
+      <managed-bean-class id="__21">backing.CertificationInfo</managed-bean-class>
+      <managed-bean-scope id="__22">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__55">
+      <managed-bean-name id="__57">Exception</managed-bean-name>
+      <managed-bean-class id="__58">Utils.ErrorHandler</managed-bean-class>
+      <managed-bean-scope id="__56">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="certContrInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/certContrInfo.jsff</page>
+    </view>
+    <task-flow-return id="save">
+      <outcome id="__4">
+        <name>save</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome id="__5">
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="refreshCertification">
+      <method>#{bindings.refreshCertification.execute}</method>
+      <outcome id="__23">
+        <fixed-outcome>refreshCertification</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewButtonCertification'}</expression>
+        <outcome id="__46">buttonAdd</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='NewMethodCertification'}</expression>
+        <outcome id="__47">methodAdd</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.resultVal=='EditCertification'}</expression>
+        <outcome id="__48">edit</outcome>
+      </case>
+      <default-outcome>buttonAdd</default-outcome>
+    </router>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__28">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="createNewCertification">
+      <method>#{bindings.createNewCertification.execute}</method>
+      <outcome id="__32">
+        <fixed-outcome>createNewCertification</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__49">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <train/>
+    <control-flow-rule id="__1">
+      <from-activity-id id="__15">refreshCertification</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">refreshCertification</from-outcome>
+        <to-activity-id id="__20">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__6">certContrInfo</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__9">save</from-outcome>
+        <to-activity-id id="__7">save</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__12">cancel</from-outcome>
+        <to-activity-id id="__11">cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__13">router1</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__27">edit</from-outcome>
+        <to-activity-id id="__17">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome id="__31">buttonAdd</from-outcome>
+        <to-activity-id id="__29">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__33">
+        <from-outcome id="__35">methodAdd</from-outcome>
+        <to-activity-id id="__34">createNewCertification</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id id="__37">CreateInsert</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome id="__38">CreateInsert</from-outcome>
+        <to-activity-id id="__40">certContrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id id="__42">createNewCertification</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome id="__45">createNewCertification</from-outcome>
+        <to-activity-id id="__43">certContrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__50">
+      <from-activity-id id="__51">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__53">
+        <from-outcome id="__52">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__54">certContrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

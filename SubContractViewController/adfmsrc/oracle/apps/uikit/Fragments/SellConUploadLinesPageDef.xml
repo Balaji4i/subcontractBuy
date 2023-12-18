@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SellConUploadLinesPageDef"
+                Package="oracle.apps.uikit.Fragments">
+  <parameters>
+        <parameter id="conNum" />
+</parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxstgSellContractHeaders_VO1" RangeSize="25"
+              DataControl="SellContract_AMDataControl"
+              id="XxstgSellContractHeaders_VO1Iterator"/>
+    <iterator Binds="XxstgSellContractLines_VOs1" RangeSize="25"
+              DataControl="SellContract_AMDataControl"
+              id="XxstgSellContractLines_VO1Iterator"/>
+    <searchRegion Binds="XxstgSellContractLines_VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxstgSellContractLines_VO11Query"/>
+<invokeAction id="intializeLineTable"
+                             Binds="filterContractLineByConNum"
+    Refresh="deferred"
+                  RefreshCondition="${bindings.conNum != null}"/>
+    <iterator id="SellContractLine_ROVO1Iterator" Binds="SellContractLine_ROVO1"
+              DataControl="SellContract_AMDataControl" RangeSize="25"/>
+    <iterator id="ContractLineType_ROVO1Iterator" Binds="ContractLineType_ROVO1"
+              DataControl="SellContract_AMDataControl" RangeSize="25"/>
+    <iterator id="LineNumberROVO1Iterator" Binds="LineNumberROVO1"
+              DataControl="SellContract_AMDataControl" RangeSize="25"/>
+    <iterator id="ProjectNumberROVO1Iterator" Binds="ProjectNumberROVO1"
+              DataControl="SellContract_AMDataControl" RangeSize="25"/>
+    <iterator id="DeleteSellContractLines_VO1Iterator"
+              Binds="DeleteSellContractLines_VO1"
+              DataControl="SellContract_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="ContractNumber">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="MajorVersion">
+      <AttrNames>
+        <Item Value="MajorVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="ContractName">
+      <AttrNames>
+        <Item Value="ContractName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="CurrencyCode">
+      <AttrNames>
+        <Item Value="CurrencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="EstimatedAmount">
+      <AttrNames>
+        <Item Value="EstimatedAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="ShipToAccountName">
+      <AttrNames>
+        <Item Value="ShipToAccountName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="ShipToAccountNumber">
+      <AttrNames>
+        <Item Value="ShipToAccountNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="ShipToSite">
+      <AttrNames>
+        <Item Value="ShipToSite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="StsCode">
+      <AttrNames>
+        <Item Value="StsCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BillToSite">
+      <AttrNames>
+        <Item Value="BillToSite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BillPlanName">
+      <AttrNames>
+        <Item Value="BillPlanName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BillToAccountName">
+      <AttrNames>
+        <Item Value="BillToAccountName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BillToAccountNumber">
+      <AttrNames>
+        <Item Value="BillToAccountNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BillToContact">
+      <AttrNames>
+        <Item Value="BillToContact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="RevenuePlanName">
+      <AttrNames>
+        <Item Value="RevenuePlanName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="PaymentType">
+      <AttrNames>
+        <Item Value="PaymentType"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxstgSellContractLines_VO1Iterator" id="Create"
+            InstanceName="SellContract_AMDataControl.XxstgSellContractLines_VO1"
+            DataControl="SellContract_AMDataControl" RequiresUpdateModel="true"
+            Action="createRow"/>
+    <action IterBinding="XxstgSellContractLines_VO1Iterator" id="CreateInsert"
+            InstanceName="SellContract_AMDataControl.XxstgSellContractLines_VO1"
+            DataControl="SellContract_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxstgSellContractLines_VO1Iterator" id="Delete"
+            InstanceName="SellContract_AMDataControl.XxstgSellContractLines_VO1"
+            DataControl="SellContract_AMDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxstgSellContractLines_VO1Iterator" id="Execute"
+            InstanceName="SellContract_AMDataControl.XxstgSellContractLines_VO1"
+            DataControl="SellContract_AMDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Rollback" DataControl="SellContract_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <methodAction id="filterContractLineByConNum"
+                  InstanceName="SellContract_AMDataControl.dataProvider"
+                  DataControl="SellContract_AMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="filterContractLineByConNum"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="conNum" NDValue="${bindings.conNum}" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxstgSellContractHeaders_VO1Iterator"
+                     id="BuyOrSell">
+      <AttrNames>
+        <Item Value="BuyOrSell"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxstgSellContractLines_VO1Iterator"
+            id="Createwithparameters"
+            InstanceName="SellContract_AMDataControl.XxstgSellContractLines_VO1"
+            DataControl="SellContract_AMDataControl" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDValue="#{bindings.ContractNumber.inputValue}"
+                 NDType="java.lang.String" NDName="ContractNumber"/>
+    </action>
+    <action id="Commit" DataControl="SellContract_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="XxstgSellContractLines_VO1Iterator"
+          id="XxstgSellContractLines_VOs1">
+      <nodeDefinition DefName="view.XxstgSellContractLines_VOs"
+                      Name="XxstgSellContractLines_VOs10">
+        <AttrNames>
+          <Item Value="LineNumber"/>
+          <Item Value="ItemName"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="UomCode"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="NumOfItem"/>
+          <Item Value="PriceUnit"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="TaskNumber"/>
+          <Item Value="OutputTaxClassificationCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

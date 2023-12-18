@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelStretchLayout id="psl1"
+                             styleClass="page-container AFStretchWidth"
+                             inlineStyle="height:570.0px;">
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl4" layout="scroll">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:spacer width="10" height="10" id="s4"/>
+              <af:outputText value="#{sessionScope.page eq 'buy' ? (bindings.Version.inputValue > 0?'Variation':'Buy Contract'):(sessionScope.page eq 'variation'?'Variation':'Sell Contract')}"
+                             id="ot1"
+                             inlineStyle="font-size:large; font-weight:bold;"/>
+              <af:spacer width="10" height="10" id="s1"/>
+              <af:outputText value="#{bindings.ContractNum.inputValue}" id="ot4"
+                             inlineStyle="font-size:large; font-weight:bold;color:#1367ae;"/>
+              <af:spacer width="195" height="10" id="s2"/>
+              <af:panelGroupLayout id="panelGroupLayout1" layout="vertical">
+                <af:spacer width="10" height="10" id="spacer1"/>
+                <af:popup id="p2" contentDelivery="lazyUncached">
+                  <af:dialog id="d2"
+                             title="#{bindings.HdrInterfaceStatus.inputValue eq 'ERROR' ? 'Contract Header Interface Error Message': ( bindings.LineInterfaceStatus.inputValue eq 'ERROR' ? 'Contract Line Interface Error Message':( bindings.ContStatusInterface.inputValue eq 'ERROR' ? 'Contract created sucessfully.But Contract not yet submitted':'Submitted Successfully'))}"
+                             inlineStyle="width:600px; height:400.0px;">
+                    <af:panelFormLayout id="pfl2">
+                      <f:facet name="footer"/>
+                      <af:inputText value="#{bindings.InterfaceErrorMsg.inputValue}"
+                                    simple="true"
+                                    converter="oracle.genericDomain"
+                                    required="#{bindings.InterfaceErrorMsg.hints.mandatory}"
+                                    columns="100"
+                                    maximumLength="#{bindings.InterfaceErrorMsg.hints.precision}"
+                                    shortDesc="#{bindings.InterfaceErrorMsg.hints.tooltip}"
+                                    id="it11" wrap="soft" rows="21">
+                        <f:validator binding="#{bindings.InterfaceErrorMsg.validator}"/>
+                      </af:inputText>
+                      <af:outputText value="#{bindings.InterfaceErrorMsg.inputValue}"
+                                     id="ot5" inlineStyle="color:Red;"
+                                     rendered="false"/>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:panelGroupLayout id="panelGroupLayout2" layout="horizontal">
+                  <af:commandImageLink id="cil3"
+                                       rendered="#{(bindings.HdrInterfaceStatus.inputValue ne 'SUCCESS' &amp;&amp; bindings.HdrInterfaceStatus.inputValue ne null) || (bindings.LineInterfaceStatus.inputValue ne 'SUCCESS'&amp;&amp; bindings.HdrInterfaceStatus.inputValue ne null) || (bindings.ContStatusInterface.inputValue  ne 'PA' &amp;&amp; bindings.HdrInterfaceStatus.inputValue ne null) ||(bindings.ContractIntStatus.inputValue eq 'ERROR' || bindings.ContractIntStatus.inputValue eq 'UPDATE_ERROR')}"
+                                       shortDesc="Error Message"
+                                       icon="/images/warning.png"
+                                       visible="#{sessionScope.page eq 'sell'}">
+                    <af:showPopupBehavior popupId="p2" triggerType="action"/>
+                  </af:commandImageLink>
+                  <af:spacer width="10" height="10" id="s23"/>
+                  <af:commandButton text="Submit Contract" id="cb9"
+                                    actionListener="#{backingBeanScope.ContractBean.onClickSubmitContract}"
+                                    rendered="#{sessionScope.page eq 'sell' ?( bindings.HdrInterfaceStatus.inputValue ne 'SUCCESS' ||  bindings.LineInterfaceStatus.inputValue ne 'SUCCESS' || bindings.ContStatusInterface.inputValue  ne 'PA' || bindings.ContractStatus.inputValue eq 'TRNS_DRAFT'  || bindings.ContractStatus.inputValue eq 'UNDER_AMENDMENT' || bindings.ContractStatus.inputValue eq 'EXPIRED' || bindings.ContractStatus.inputValue eq 'REJ'):false}"
+                                    action="save"
+                                    visible="#{sessionScope.page eq 'sell'}"/>
+                  <af:spacer width="10" height="10" id="s12"/>
+                  <af:commandButton text="Approve" id="cb1" rendered="false"/>
+                  <af:spacer width="10" height="10" id="s16" rendered="false"/>
+                  <af:commandButton text="Reject" id="cb2" rendered="false"/>
+                  <af:spacer width="10" height="10" id="s15" rendered="false"/>
+                  <af:commandButton id="cb8" text="Submit for Approval"
+                                    action="save"
+                                    actionListener="#{backingBeanScope.ContractBean.onClickSubmitForApproval}"
+                                    rendered="false"/>
+                  <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                     id="tbb1"
+                                     rendered="#{sessionScope.page eq 'buy'|| sessionScope.page eq 'variation'}"/>
+                  <af:spacer width="10" height="10" id="s3" rendered="false"/>
+                  <af:menuBar id="mb1" rendered="false">
+                    <af:menu text="Action" id="m1"
+                             rendered="#{backingBeanScope.ContractBean.approvalUser}">
+                      <af:commandMenuItem text="Approve" id="cmi1">
+                        <af:showPopupBehavior popupId="popup1"
+                                              triggerType="action"/>
+                      </af:commandMenuItem>
+                      <af:commandMenuItem text="Reject" id="cmi2">
+                        <af:showPopupBehavior popupId="p3"
+                                              triggerType="action"/>
+                      </af:commandMenuItem>
+                    </af:menu>
+                    <af:spacer width="10" height="10" id="s24"/>
+                    <af:commandButton text="Submit" id="cb11"
+                                      disabled="#{bindings.ApprovalStatus.inputValue eq 'PEN'|| bindings.ApprovalStatus.inputValue eq 'APR'}"
+                                      action="#{backingBeanScope.ContractBean.onSubmit}"/>
+                    <af:popup id="p3"
+                              binding="#{backingBeanScope.ContractBean.p3}"
+                              contentDelivery="lazyUncached">
+                      <af:dialog id="d3" type="none" title="Reason">
+                        <f:facet name="buttonBar">
+                          <af:toolbar id="t5" flex="1">
+                            <af:spacer width="50" height="10" id="s26"/>
+                            <af:commandButton text="Save" id="cb12"
+                                              action="#{backingBeanScope.ContractBean.onClickReject}"/>
+                            <af:spacer width="10" height="10" id="s25"/>
+                            <af:commandButton text="Cancel" id="cb13"
+                                              actionListener="#{backingBeanScope.ContractBean.onRejectCancel}"/>
+                          </af:toolbar>
+                        </f:facet>
+                        <af:inputText id="it12" rows="4"
+                                      contentStyle="width:200px"
+                                      binding="#{backingBeanScope.ContractBean.rejectValue}"/>
+                      </af:dialog>
+                    </af:popup>
+                    <af:popup id="popup1"
+                              binding="#{backingBeanScope.ContractBean.p4}"
+                              contentDelivery="lazyUncached">
+                      <af:dialog id="dialog1" type="none" title="Reason">
+                        <f:facet name="buttonBar">
+                          <af:toolbar id="toolbar1" flex="1">
+                            <af:spacer width="50" height="10" id="spacer2"/>
+                            <af:commandButton text="Save" id="commandButton1"
+                                              action="#{backingBeanScope.ContractBean.onClickApprove}"/>
+                            <af:spacer width="10" height="10" id="spacer3"/>
+                            <af:commandButton text="Cancel" id="commandButton2"
+                                              actionListener="#{backingBeanScope.ContractBean.onClickAppCancel}"/>
+                          </af:toolbar>
+                        </f:facet>
+                        <af:inputText id="inputText1" rows="4"
+                                      contentStyle="width:200px"
+                                      binding="#{backingBeanScope.ContractBean.approValue}"/>
+                      </af:dialog>
+                    </af:popup>
+                  </af:menuBar>
+                  <af:spacer width="10" height="10" id="s17"
+                             rendered="#{sessionScope.page eq 'buy'|| sessionScope.page eq 'variation'}"/>
+                  <af:commandButton text="Submit" id="cb3"
+                                    actionListener="#{backingBeanScope.ContractBean.onClickSubmit}"
+                                    action="save" rendered="false"
+                                    shortDesc="#{sessionScope.page eq 'buy'|| sessionScope.page eq 'variation'}"/>
+                  <af:spacer width="10" height="10" id="s18" rendered="false"/>
+                  <af:commandButton text="Save &amp; Close" id="cb4"
+                   rendered="#{bindings.XxscContractGuaranteeVO2.estimatedRowCount ne 0 ? true : false}"
+                                    action="#{backingBeanScope.ContractBean.onClickSaveRe_Direct}"/>
+                  <af:commandButton text="Save" id="cb10" rendered="false"/>
+                  <af:spacer width="10" height="10" id="s19"/>
+                  <af:commandButton text="Cancel" id="cb5" immediate="true"
+                                    action="gaurInfo_Cancel">
+                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                  </af:commandButton>
+                  <af:popup id="p1"
+                            binding="#{backingBeanScope.ContractBean.gauInfoCancelPopup}">
+                    <af:dialog id="d1" type="none"
+                               inlineStyle="width:350.0px; height:108px;"
+                               title="Warning"
+                               titleIconSource="/image/warning.png">
+                      <af:outputText value="Are you sure want to Cancel this Information ?"
+                                     id="ot2" inlineStyle="font-weight:bold;"/>
+                      <f:facet name="buttonBar">
+                        <af:toolbar id="t4">
+                          <af:spacer width="210" height="10" id="s20"/>
+                          <af:commandButton text="Ok" id="cb6"
+                                            actionListener="#{bindings.Rollback.execute}"
+                                            immediate="true"
+                                            action="gaurInfo_Cancel"/>
+                          <af:spacer width="10" height="10" id="s21"/>
+                          <af:commandButton text="Cancel" id="cb7"
+                                            actionListener="#{backingBeanScope.ContractBean.onClickGauInfoPopupCancel}"/>
+                        </af:toolbar>
+                      </f:facet>
+                    </af:dialog>
+                  </af:popup>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:separator id="s6" inlineStyle="border-color:#C1C1C1;"/>
+            <af:spacer width="10" height="10" id="s7"/>
+            <af:panelGroupLayout id="pgl5" styleClass="AFStretchWidth">
+              <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                        id="t1" inlineStyle="padding-left:280px"/>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s8"/>
+            <af:panelBox text="Defects Liability" id="pb2"
+                         showDisclosure="false" styleClass="AFStretchWidth"
+                         inlineStyle="background-color:#91eaa3;"
+                         rendered="false">
+              <f:facet name="toolbar"/>
+              <af:spacer width="10" height="5" id="s14"/>
+              <af:panelFormLayout id="pfl1" rows="1" maxColumns="3"
+                                  labelWidth="170">
+                <af:panelLabelAndMessage label="#{bindings.DefectLiabPeriod.hints.label}"
+                                         id="plam1">
+                  <af:panelGroupLayout id="pgl6" layout="horizontal">
+                    <af:inputText value="#{bindings.DefectLiabPeriod.inputValue}"
+                                  label="#{bindings.DefectLiabPeriod.hints.label}"
+                                  required="#{bindings.DefectLiabPeriod.hints.mandatory}"
+                                  columns="#{bindings.DefectLiabPeriod.hints.displayWidth}"
+                                  maximumLength="#{bindings.DefectLiabPeriod.hints.precision}"
+                                  shortDesc="#{bindings.DefectLiabPeriod.hints.tooltip}"
+                                  id="it9" simple="true"
+                                  contentStyle="width:100px;text-align:right;"
+                                  autoSubmit="true"
+                                  binding="#{backingBeanScope.ContractBean.dlpPeriodCategory}"
+                                  valueChangeListener="#{backingBeanScope.ContractBean.onChangeDefectLiabPeriod}">
+                      <f:validator binding="#{bindings.DefectLiabPeriod.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.DefectLiabPeriod.format}"/>
+                    </af:inputText>
+                    <af:spacer width="10" height="10" id="s10"/>
+                    <af:selectOneChoice value="#{bindings.DlpPeriodCategory.inputValue}"
+                                        label="#{bindings.DlpPeriodCategory.label}"
+                                        required="#{bindings.DlpPeriodCategory.hints.mandatory}"
+                                        shortDesc="#{bindings.DlpPeriodCategory.hints.tooltip}"
+                                        id="soc3" simple="true"
+                                        contentStyle="width:95px"
+                                        autoSubmit="true"
+                                        valueChangeListener="#{backingBeanScope.ContractBean.onChangeDlpPeriodCategory}"
+                                        binding="#{backingBeanScope.ContractBean.dlpPeriodCategoryType}">
+                      <f:selectItems value="#{bindings.DlpPeriodCategory.items}"
+                                     id="si3"/>
+                    </af:selectOneChoice>
+                  </af:panelGroupLayout>
+                </af:panelLabelAndMessage>
+                <af:inputDate value="#{bindings.DefectLiabEndDate.inputValue}"
+                              label="#{bindings.DefectLiabEndDate.hints.label}"
+                              required="#{bindings.DefectLiabEndDate.hints.mandatory}"
+                              shortDesc="#{bindings.DefectLiabEndDate.hints.tooltip}"
+                              id="id3" contentStyle="width:200px"
+                              autoSubmit="true"
+                              binding="#{backingBeanScope.ContractBean.defectLiabEndDate}">
+                  <f:validator binding="#{bindings.DefectLiabEndDate.validator}"/>
+                  <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Remarks.inputValue}"
+                              label="#{bindings.Remarks.hints.label}"
+                              required="#{bindings.Remarks.hints.mandatory}"
+                              columns="#{bindings.Remarks.hints.displayWidth}"
+                              maximumLength="#{bindings.Remarks.hints.precision}"
+                              shortDesc="#{bindings.Remarks.hints.tooltip}"
+                              id="it8" contentStyle="width:200px" rows="3"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.Remarks.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+              <af:spacer width="10" height="5" id="s11"/>
+            </af:panelBox>
+            <af:spacer width="10" height="10" id="s9"/>
+            <af:panelTabbed position="above" id="pt2"
+                            styleClass="AFStretchWidth"
+                            inlineStyle="height:387.0px;">
+              <af:showDetailItem id="tab1" text="Guarantee Information"
+                                 displayIndex="-1">
+                <af:panelBox text="Guarantee Information" id="pb1"
+                             partialTriggers="pc1:t2:sbc1 pc1:t2:soc1"
+                             styleClass="AFStretchWidth" showDisclosure="false"
+                             inlineStyle="height:500.0px;" showHeader="never">
+                  <f:facet name="toolbar"/>
+                 
+                  <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                      featuresOff="Detach">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                      <af:toolbar id="t3" flex="1">
+                       
+                        <af:commandImageLink actionListener="#{bindings.CreateInsertGuan.execute}"
+                                             id="cil1" icon="/images/add.png"
+                                             hoverIcon="/images/add_en.png"/>
+                        <af:spacer width="10" height="10" id="s13"/>
+                        <af:commandImageLink actionListener="#{bindings.Delete.execute}"
+                                             disabled="#{(!bindings.Delete.enabled) || (bindings.ApprovalStatus.inputValue eq 'PEN'|| bindings.ApprovalStatus.inputValue eq 'APR')}"
+                                             id="cil2" icon="/images/delete.png"
+                                             hoverIcon="/images/delete_ena.png"/>
+                      </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.XxscContractGuaranteeVO2.collectionModel}"
+                              var="row"  partialTriggers="sbc1 soc1"
+                              rows="#{bindings.XxscContractGuaranteeVO2.rangeSize}"
+                              emptyText="#{bindings.XxscContractGuaranteeVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.XxscContractGuaranteeVO2.rangeSize}"
+                              rowBandingInterval="0" id="t2" scrollPolicy="page"
+                              autoHeightRows="0" rowSelection="single"
+                              varStatus="vs" inlineStyle="height:500.0px;"
+                              columnBandingInterval="0" first="0">
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.name}"
+                                 sortable="false" headerText="ContGuarId"
+                                 id="c6" rendered="false">
+                        <af:inputText value="#{row.bindings.ContGuarId.inputValue}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.label}"
+                                      required="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.mandatory}"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.tooltip}"
+                                      id="it4" disabled="true">
+                          <f:validator binding="#{row.bindings.ContGuarId.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.XxscContractGuaranteeVO2.hints.ContGuarId.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.name}"
+                                 sortable="false" headerText="ContHeaderId"
+                                 id="c11" rendered="false">
+                        <af:inputText value="#{row.bindings.ContHeaderId.inputValue}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.label}"
+                                      required="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.mandatory}"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.tooltip}"
+                                      id="it2" disabled="true"
+                                     >
+                          <f:validator binding="#{row.bindings.ContHeaderId.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.XxscContractGuaranteeVO2.hints.ContHeaderId.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column id="c21" width="40" headerText="S.No"
+                                 align="center">
+                        <af:outputText value="#{vs.index+1}" id="ot3"/>
+                      </af:column>
+                      
+                        <af:column headerText="Notification"
+                                 id="c13">
+                               
+                        <af:selectOneChoice value="#{row.bindings.Attribute1.inputValue}" 
+                                            label="#{row.bindings.Attribute1.label}" autoSubmit="true"
+                                            required="true"
+                                            
+                                            shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.Attribute1.tooltip}"
+                                            id="sbc1"
+                                            binding="#{backingBeanScope.ContractBean.attriBooleanGau}">
+                          <f:selectItems value="#{row.bindings.Attribute1.items}"
+                                         id="si4"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.GuarType.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.GuarType.label}"
+                                 id="c7" width="110">
+                        <af:selectOneChoice value="#{row.bindings.GuarType.inputValue}"
+                                            label="#{row.bindings.GuarType.label}"
+                                           required="true"
+                                            shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.GuarType.tooltip}"
+                                            id="soc1" autoSubmit="true"
+                                            valueChangeListener="#{backingBeanScope.ContractBean.GuarTypeVCL}"
+                                            binding="#{backingBeanScope.ContractBean.gaurTyp}">
+                          <f:selectItems value="#{row.bindings.GuarType.items}"
+                                         id="si1"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.GuarCategory.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.GuarCategory.label}"
+                                 id="c8" width="130">
+                        <af:selectOneChoice value="#{row.bindings.GuarCategory.inputValue}"
+                                            label="#{row.bindings.GuarCategory.label}"
+                                            shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.GuarCategory.tooltip}"
+                                            id="soc2" autoSubmit="true"
+                                            partialTriggers="soc1"
+                                            binding="#{backingBeanScope.ContractBean.guarCategory}"
+                                            disabled="false">
+                          <f:selectItems value="#{row.bindings.GuarCategory.items}"
+                                         id="si2"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                   
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.Institution.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.Institution.label}"
+                                 id="c9" width="110" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.Institution.inputValue}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.Institution.label}"
+                                      required="#{bindings.XxscContractGuaranteeVO2.hints.Institution.mandatory}"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.Institution.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.Institution.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.Institution.tooltip}"
+                                      id="it6" autoSubmit="true">
+                          <f:validator binding="#{row.bindings.Institution.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.StartDate.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.StartDate.label}"
+                                 id="c5" width="110" displayIndex="-1">
+                                
+                                  <af:inputDate value="#{row.bindings.StartDate.inputValue}" 
+                                  required="#{row.bindings.GuarType.attributeValue eq 'Not Applicable' || row.bindings.GuarType.inputValue eq '0' ? false : false}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.StartDate.label}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.StartDate.tooltip}"
+                                      id="id2" autoSubmit="true"   partialTriggers="soc1 sbc1"
+                                      binding="#{backingBeanScope.ContractBean.guaStDate}">
+                          <f:validator binding="#{row.bindings.StartDate.validator}"/>
+                          <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                        </af:inputDate>
+                      </af:column>
+                      
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.EndDate.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.EndDate.label}"
+                                 id="c3" width="110" displayIndex="-1">
+                        <af:inputDate value="#{row.bindings.EndDate.inputValue}" 
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.EndDate.label}"
+                                    
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.EndDate.tooltip}"
+                                      id="id1" autoSubmit="true"   partialTriggers="soc1 sbc1"
+                                      valueChangeListener="#{backingBeanScope.ContractBean.onChangeGuarEnDate}"
+                                      binding="#{backingBeanScope.ContractBean.guaEnDate}"
+                                      minValue="#{row.bindings.StartDate.inputValue}">
+                          <f:validator binding="#{row.bindings.EndDate.validator}"/>
+                          <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                        </af:inputDate>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.Duration.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.Duration.label}"
+                                 id="c1" width="100" displayIndex="-1">
+                        <af:panelGroupLayout id="pgl7" layout="horizontal">
+                          <af:inputText value="#{row.bindings.Duration.inputValue}"
+                                        label="#{bindings.XxscContractGuaranteeVO2.hints.Duration.label}"
+                                        required="#{bindings.XxscContractGuaranteeVO2.hints.Duration.mandatory}"
+                                        columns="#{bindings.XxscContractGuaranteeVO2.hints.Duration.displayWidth}"
+                                        maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.Duration.precision}"
+                                        shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.Duration.tooltip}"
+                                        id="it3" autoSubmit="true"
+                                        binding="#{backingBeanScope.ContractBean.gauDuration}"
+                                        contentStyle="width:50px;text-align:right;"
+                                        readOnly="false">
+                            <f:validator binding="#{row.bindings.Duration.validator}"/>
+                          </af:inputText>
+                          <af:spacer width="5" height="10" id="s22"/>
+                          <af:inputText id="it10" contentStyle="width:50px"
+                                        binding="#{backingBeanScope.ContractBean.guaDayBind}"
+                                        readOnly="true"/>
+                        </af:panelGroupLayout>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.Value.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.Value.label}"
+                                 id="c4" width="100" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.Value.inputValue}" 
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.Value.label}"
+                                    required="#{row.bindings.GuarType.attributeValue eq 'Not Applicable' || row.bindings.GuarType.inputValue eq '0' ? false : false}"
+                                   partialTriggers="soc1 sbc1"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.Value.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.Value.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.Value.tooltip}"
+                                      id="it7" autoSubmit="true"
+                                      binding="#{backingBeanScope.ContractBean.gauVal}">
+                          <f:validator binding="#{row.bindings.Value.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.XxscContractGuaranteeVO2.hints.Value.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.name}"
+                                 sortable="false" 
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.label}"
+                                 id="c10" width="110" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.RefNumber.inputValue}" 
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.label}"
+                                       required="#{row.bindings.GuarType.attributeValue eq 'Not Applicable' || row.bindings.GuarType.inputValue eq '0' ? false : false}"
+
+                                         columns="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.RefNumber.tooltip}"
+                                      id="it5" autoSubmit="true"     partialTriggers="soc1 sbc1"
+                                      binding="#{backingBeanScope.ContractBean.gauRefNo}">
+                          <f:validator binding="#{row.bindings.RefNumber.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.label}"
+                                 id="c2" width="190" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.label}"
+                                      required="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.mandatory}"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.Remarks.tooltip}"
+                                      id="it1" autoSubmit="true" rows="1">
+                          <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      
+                       <af:column sortProperty="#{bindings.XxscContractGuaranteeVO2.hints.FileName.name}"
+                                 sortable="false" rendered="true"
+                                 headerText="#{bindings.XxscContractGuaranteeVO2.hints.FileName.label}"
+                                 id="c14">
+                        <af:inputText value="#{row.bindings.FileName.inputValue}"
+                                      autoSubmit="true"  disabled="false"
+                                      required="#{row.bindings.GuarType.attributeValue eq 'Not Applicable' || row.bindings.GuarType.inputValue eq '0' ? false : false}"
+                                      label="#{bindings.XxscContractGuaranteeVO2.hints.FileName.label}"
+                                      columns="#{bindings.XxscContractGuaranteeVO2.hints.FileName.displayWidth}"
+                                      maximumLength="#{bindings.XxscContractGuaranteeVO2.hints.FileName.precision}"
+                                      shortDesc="#{bindings.XxscContractGuaranteeVO2.hints.FileName.tooltip}"
+                                      id="it14" partialTriggers="if100"
+                                      binding="#{backingBeanScope.ContractBean.fileNameAtt}">
+                          <f:validator binding="#{row.bindings.FileName.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                    
+                    <af:column  headerText="FileName" id="fn1" rendered="false">
+                    <af:outputText value="#{row.bindings.FileName.inputValue}" id="out1" partialTriggers="if100" 
+                       
+                                   binding="#{backingBeanScope.ContractBean.fileNam}"> </af:outputText>
+                              
+                  </af:column>
+                    
+                      <af:column id="c500" width="150" headerText="Attachment">
+                        <af:inputFile label="Import" id="if100"
+                                      autoSubmit="true"
+                                      
+                                          
+                                          valueChangeListener="#{backingBeanScope.ContractBean.onClickGaurAttach}"
+                                      contentStyle="width:200px;"
+                                        partialTriggers="soc1 sbc1"
+                                      binding="#{backingBeanScope.ContractBean.gaunImprt}"/>
+                      </af:column>
+                      <af:column id="c12" width="70" headerText="Download" rendered="true">
+                        <af:commandImageLink id="cil14"
+                                             disabledIcon="/images/filedownload_dis.png"
+                                             icon="/images/filedownload_ena.png"
+                                             hoverIcon="/images/filedownload_ovr.png">
+                                              
+                          <af:fileDownloadActionListener contentType="#{row.bindings.FileType.inputValue}"
+                                                         filename="#{row.bindings.FileName.inputValue}"
+                                                         method="#{backingBeanScope.ContractBean.dwnlGaurAttach}"/>
+                        </af:commandImageLink>
+                      </af:column>
+                    </af:table>
+                    
+                  </af:panelCollection>
+                  
+                  
+                </af:panelBox>
+               
+              </af:showDetailItem>
+              <af:showDetailItem id="tab2" text="Action History"
+                                 inlineStyle="background-color:#91eaa3;"/>
+            </af:panelTabbed>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

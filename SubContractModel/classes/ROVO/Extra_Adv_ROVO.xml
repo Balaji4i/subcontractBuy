@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Extra_Adv_ROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.Extra_Adv_ROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bv_hdr_id"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select dtls.NAME as name ,dtls.AMT as amt ,nvl(prev.prev_amt,0) as prev_amt from
+(select NAME,AMT from( 
+select ca.ADVANCE_NAME NAME,nvl(sum(ca.ADVANCE_AMT),0) AMT
+from XXSC_CERTIFICATION_HEADERS ch,XXSC_CERT_ADVANCE_DTLS ca 
+where 1=1 
+and ch.CONT_HEADER_ID = :bv_hdr_id
+and ch.CERT_HEADER_ID = ca.CERT_HEADER_ID
+and ch.PAYMENT_TYPE = 'Advance'
+group by ADVANCE_NAME) where AMT>0) dtls,
+(SELECT cr.ADVANCE_NAME name,sum(nvl(cr.CUR_REC_AMT,pr.CUR_REC_AMT)) prev_amt
+FROM XXSC_CERTIFICATION_HEADERS ch,XXSC_CERT_ADV_REC_DTLS cr,
+XXSC_PAY_APPL_ADV_REC_DTLS pr
+where  1=1
+and ch.CERT_HEADER_ID = cr.CERT_HEADER_ID
+and pr.APPL_ADV_REC_ID(+)= cr.APPL_ADV_REC_ID
+and ch.CONT_HEADER_ID = :bv_hdr_id
+group by cr.ADVANCE_NAME)prev
+where 1=1
+and prev.name (+) =dtls.NAME]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Amt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="AMT"
+    Expression="AMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevAmt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PREV_AMT"
+    Expression="PREV_AMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

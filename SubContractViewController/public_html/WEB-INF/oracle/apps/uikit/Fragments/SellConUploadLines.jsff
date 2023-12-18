@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+   <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                    id="pt1">
+      <f:facet name="pageContents">
+         <af:panelBox text="Contract Line Upload"
+                      binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pb3}"
+                      id="pb3" inlineStyle="border-color:transparent;"
+                      showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pgl2}"
+                                 id="pgl2" layout="horizontal">
+               <af:inputText label="Contract Number"
+                             binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.it1}"
+                             id="it1" usage="search"
+                             value="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.conNum}"
+                             autoSubmit="true"/>
+               <af:spacer width="10" height="10"
+                          binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s2}"
+                          id="s2"/>
+               <af:commandButton text="Search"
+                                 binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cb1}"
+                                 id="cb1"
+                                 actionListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.onClickPopulate}"/>
+               <af:spacer width="655" height="10"
+                          binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s7}"
+                          id="s7"/>
+               <af:panelGroupLayout binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pgl1}"
+                                    id="pgl1" layout="horizontal">
+                  <af:commandButton
+                                    text="Save"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cb5}"
+                                    id="cb5"
+                                    actionListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.OnClickSave}"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s8}"
+                             id="s8"/>
+                  <af:commandButton text="Submit"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cb2}"
+                                    id="cb2"
+                                    actionListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.onClickContract}"
+                                    disabled="true"/>
+               </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10"
+                       binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s3}"
+                       id="s3"/>
+            <af:panelBox text="Contract Headers"
+                         binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pb1}"
+                         id="pb1" showDisclosure="false">
+               <f:facet name="toolbar"/>
+               <af:panelFormLayout binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pfl1}"
+                                   id="pfl1" rows="2" maxColumns="4">
+                  <af:panelLabelAndMessage label="#{bindings.ContractNumber.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam1}"
+                                           id="plam1">
+                     <af:outputText value="#{bindings.ContractNumber.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot1}"
+                                    id="ot1"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.MajorVersion.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam2}"
+                                           id="plam2">
+                     <af:outputText value="#{bindings.MajorVersion.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot2}"
+                                    id="ot2">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.MajorVersion.format}"/>
+                     </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.ContractName.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam3}"
+                                           id="plam3">
+                     <af:outputText value="#{bindings.ContractName.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot3}"
+                                    id="ot3"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.StartDate.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam4}"
+                                           id="plam4">
+                     <af:outputText value="#{bindings.StartDate.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot4}"
+                                    id="ot4">
+                        <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                     </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.EndDate.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam5}"
+                                           id="plam5">
+                     <af:outputText value="#{bindings.EndDate.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot5}"
+                                    id="ot5">
+                        <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                     </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.CurrencyCode.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam6}"
+                                           id="plam6">
+                     <af:outputText value="#{bindings.CurrencyCode.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot6}"
+                                    id="ot6"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.EstimatedAmount.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam7}"
+                                           id="plam7">
+                     <af:outputText value="#{bindings.EstimatedAmount.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot7}"
+                                    id="ot7">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.EstimatedAmount.format}"/>
+                     </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.ShipToAccountName.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam8}"
+                                           id="plam8" rendered="false">
+                     <af:outputText value="#{bindings.ShipToAccountName.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot8}"
+                                    id="ot8"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.ShipToAccountNumber.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam9}"
+                                           id="plam9" rendered="false">
+                     <af:outputText value="#{bindings.ShipToAccountNumber.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot9}"
+                                    id="ot9"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.ShipToSite.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam10}"
+                                           id="plam10" rendered="false">
+                     <af:outputText value="#{bindings.ShipToSite.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot10}"
+                                    id="ot10"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.StsCode.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam11}"
+                                           id="plam11">
+                     <af:outputText value="#{bindings.StsCode.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot11}"
+                                    id="ot11"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.BillToSite.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam12}"
+                                           id="plam12" rendered="false">
+                     <af:outputText value="#{bindings.BillToSite.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot12}"
+                                    id="ot12"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.BillPlanName.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam13}"
+                                           id="plam13" rendered="false">
+                     <af:outputText value="#{bindings.BillPlanName.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot13}"
+                                    id="ot13"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.BillToAccountName.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam14}"
+                                           id="plam14" rendered="false">
+                     <af:outputText value="#{bindings.BillToAccountName.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot14}"
+                                    id="ot14"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.BillToAccountNumber.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam15}"
+                                           id="plam15" rendered="false">
+                     <af:outputText value="#{bindings.BillToAccountNumber.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot15}"
+                                    id="ot15"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.BillToContact.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam16}"
+                                           id="plam16" rendered="false">
+                     <af:outputText value="#{bindings.BillToContact.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot16}"
+                                    id="ot16"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.RevenuePlanName.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam17}"
+                                           id="plam17" rendered="false">
+                     <af:outputText value="#{bindings.RevenuePlanName.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot17}"
+                                    id="ot17"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.PaymentType.hints.label}"
+                                           binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.plam18}"
+                                           id="plam18" rendered="false">
+                     <af:outputText value="#{bindings.PaymentType.inputValue}"
+                                    binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.ot18}"
+                                    id="ot18"/>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+            </af:panelBox>
+            <af:spacer width="10" height="10"
+                       binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s1}"
+                       id="s1"/>
+            <af:panelBox text="Contract Lines"
+                         binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pb2}"
+                         id="pb2" showDisclosure="false"
+                         styleClass="AFStretchWidth">
+               <f:facet name="toolbar"/>
+               <af:panelCollection binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.pc1}"
+                                   id="pc1" styleClass="AFStretchWidth">
+                  <f:facet name="menus">
+                     <af:menu text="Action"
+                              binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.m1}"
+                              id="m1">
+                        <af:goMenuItem text="Download Excel"
+                                       destination="/Excel/Sell_Contract_Upload_Lines.xlsx?conNum=#{bindings.ContractNumber.inputValue}"
+                                       binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.gmi1}"
+                                       id="gmi1" icon="/images/xl.png"/>
+                     </af:menu>
+                  </f:facet>
+                  <f:facet name="toolbar">
+                     <af:toolbar binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.t2}"
+                                 id="t2">
+                        <af:commandImageLink
+                                             binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cil1}"
+                                             id="cil1" icon="/images/add.png"
+                                             hoverIcon="/images/add_en.png"
+                                             actionListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.OnClickAdd}"/>
+                        <af:spacer width="10" height="10"
+                                   binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s5}"
+                                   id="s5"/>
+                        <af:commandImageLink
+                                             binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cil2}"
+                                             id="cil2"
+                                             icon="/images/delete.png"
+                                             hoverIcon="/images/delete_ena.png"
+                                             actionListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.OnClickDelete}"/>
+                        <af:spacer width="10" height="10"
+                                   binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s6}"
+                                   id="s6"/>
+                        <af:commandButton text="Export Template"
+                                          binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cb4}"
+                                          id="cb4" rendered="false">
+                           <af:exportCollectionActionListener type="excelHTML"
+                                                              exportedId="t1"/>
+                        </af:commandButton>
+                        <af:spacer width="10" height="10"
+                                   binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.s4}"
+                                   id="s4"/>
+                        <af:commandButton text="Excel"
+                                          binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.cb3}"
+                                          id="cb3">
+                           <af:fileDownloadActionListener contentType="application/xls"
+                                                          filename="Test.xls"
+                                                          method="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.contractLineDownload}"/>
+                        </af:commandButton>
+                        <af:inputFile 
+                                      binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.if1}"
+                                      id="if1" autoSubmit="true"
+                                      valueChangeListener="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.onChangeUpload}"
+                                      label="Import"/>
+                     </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.XxstgSellContractLines_VOs1.collectionModel}"
+                            var="row"
+                            rows="#{bindings.XxstgSellContractLines_VOs1.rangeSize}"
+                            emptyText="#{bindings.XxstgSellContractLines_VOs1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.XxstgSellContractLines_VOs1.rangeSize}" rowBandingInterval="0"
+                            filterModel="#{bindings.XxstgSellContractLines_VO11Query.queryDescriptor}"
+                            queryListener="#{bindings.XxstgSellContractLines_VO11Query.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                            selectedRowKeys="#{bindings.XxstgSellContractLines_VOs1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.XxstgSellContractLines_VOs1.collectionModel.makeCurrent}"
+                            rowSelection="single"
+                            binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.t1}"
+                            columnBandingInterval="0" id="t1"
+                             scrollPolicy="page"
+                            autoHeightRows="0"
+                            partialTriggers=":::cb5 ::cil1 ::cil2 ::if1 :::cb1">
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.name}"
+                                filterable="true" sortable="true"
+                                headerText="Line #"
+                                id="c7" width="40" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.LineNumber.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.LineNumber.tooltip}"
+                                      id="it10">
+                           <f:validator binding="#{row.bindings.LineNumber.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.name}"
+                                filterable="true" sortable="true"
+                                headerText="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.label}"
+                                id="c1" width="220">
+                        <af:inputText value="#{row.bindings.ItemName.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.ItemName.tooltip}"
+                                      id="it7">
+                           <f:validator binding="#{row.bindings.ItemName.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.name}"
+                                filterable="true" sortable="true"
+                                headerText="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.label}"
+                                id="c3" width="250">
+                        <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.ItemDescription.tooltip}"
+                                      id="it2">
+                           <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.name}"
+                                filterable="true" sortable="true"
+                                headerText="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.label}"
+                                id="c4" rendered="false">
+                        <af:inputText value="#{row.bindings.UomCode.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.UomCode.tooltip}"
+                                      id="it4">
+                           <f:validator binding="#{row.bindings.UomCode.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.name}"
+                                filterable="true" sortable="true"
+                                headerText="UOM"
+                                id="c2" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.UnitOfMeasure.tooltip}"
+                                      id="it3">
+                           <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.name}"
+                                filterable="true" sortable="true"
+                                headerText="Qty"
+                                id="c11" width="40">
+                        <af:inputText value="#{row.bindings.NumOfItem.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.NumOfItem.tooltip}"
+                                      id="it6">
+                           <f:validator binding="#{row.bindings.NumOfItem.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.name}"
+                                filterable="true" sortable="true"
+                                headerText="Rate"
+                                id="c5" width="40">
+                        <af:inputText value="#{row.bindings.PriceUnit.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.PriceUnit.tooltip}"
+                                      id="it11">
+                           <f:validator binding="#{row.bindings.PriceUnit.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.StartDate.name}"
+                                filterable="true" sortable="true"
+                                headerText="Start Date"
+                                id="c6">
+                        <f:facet name="filter">
+                           <af:inputDate value="#{vs.filterCriteria.StartDate}"
+                                         binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.id1}"
+                                         id="id1"/>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.StartDate.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.StartDate.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.StartDate.mandatory}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.StartDate.tooltip}"
+                                      id="id4">
+                           <f:validator binding="#{row.bindings.StartDate.validator}"/>
+                           <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                        </af:inputDate>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.EndDate.name}"
+                                filterable="true" sortable="true"
+                                headerText="End Date"
+                                id="c8">
+                        <f:facet name="filter">
+                           <af:inputDate value="#{vs.filterCriteria.EndDate}"
+                                         binding="#{backingBeanScope.backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines.id2}"
+                                         id="id2"/>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.EndDate.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.EndDate.mandatory}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.EndDate.tooltip}"
+                                      id="id3">
+                           <f:validator binding="#{row.bindings.EndDate.validator}"/>
+                           <af:convertDateTime pattern="#{bundle['Action.datetime']}"/>
+                        </af:inputDate>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.name}"
+                                filterable="true" sortable="true"
+                                headerText="Project #"
+                                id="c12">
+                        <af:inputText value="#{row.bindings.ProjectNumber.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.ProjectNumber.tooltip}"
+                                      id="it9">
+                           <f:validator binding="#{row.bindings.ProjectNumber.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.name}"
+                                filterable="true" sortable="true"
+                                headerText="Task #"
+                                id="c9" width="60" displayIndex="-1">
+                        <af:inputText value="#{row.bindings.TaskNumber.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.TaskNumber.tooltip}"
+                                      id="it8">
+                           <f:validator binding="#{row.bindings.TaskNumber.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                     <af:column sortProperty="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.name}"
+                                filterable="true" sortable="true"
+                                headerText="Tax "
+                                id="c10">
+                        <af:inputText value="#{row.bindings.OutputTaxClassificationCode.inputValue}"
+                                      label="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.label}"
+                                      required="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.mandatory}"
+                                      columns="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.displayWidth}"
+                                      maximumLength="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.precision}"
+                                      shortDesc="#{bindings.XxstgSellContractLines_VOs1.hints.OutputTaxClassificationCode.tooltip}"
+                                      id="it5">
+                           <f:validator binding="#{row.bindings.OutputTaxClassificationCode.validator}"/>
+                        </af:inputText>
+                     </af:column>
+                  </af:table>
+               </af:panelCollection>
+            </af:panelBox>
+         </af:panelBox>
+      </f:facet>
+      <f:facet name="headerStart"/>
+   </af:pageTemplate>
+   <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_WEBINF_oracle_apps_uikit_Fragments_SellConUploadLines-->
+</jsp:root>

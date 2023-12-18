@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GetOtherChargesAmountROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="BV_CONT_ID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BV_APPL_ID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select 
+CONT_HEADER_ID, 
+sum(case when CERT_HEADER_ID <:BV_APPL_ID then NVL(CHARGE_AMT,0) end) as PRE_OTH_CHARGE_AMT, 
+sum(case when CERT_HEADER_ID =:BV_APPL_ID then NVL(CHARGE_AMT,0) end) as CUR_OTH_CHARGE_AMT ,  
+sum(NVL(CHARGE_AMT,0)) as CUM_OTH_CHARGE_AMT 
+from XXSC_PREV_CERT_OTH_CHARGES_V
+where 
+CONT_HEADER_ID=:BV_CONT_ID
+group by CONT_HEADER_ID]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="ContHeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="CONT_HEADER_ID"
+    Expression="CONT_HEADER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PreOthChargeAmt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PRE_OTH_CHARGE_AMT"
+    Expression="PRE_OTH_CHARGE_AMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurOthChargeAmt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CUR_OTH_CHARGE_AMT"
+    Expression="CUR_OTH_CHARGE_AMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CumOthChargeAmt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CUM_OTH_CHARGE_AMT"
+    Expression="CUM_OTH_CHARGE_AMT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

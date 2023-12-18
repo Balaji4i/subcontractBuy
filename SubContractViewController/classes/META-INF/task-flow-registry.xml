@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/homeSellBTF.xml" id="homeSellBTF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false">
+      <input-parameter name="jwt"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/SellContractUploadLine.xml" id="SellContractUploadLine" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml" id="contractSearchBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/payCertBTF.xml" id="payCertBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="true"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/homeBTF.xml" id="homeBTF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false">
+      <input-parameter name="jwt"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/ApplicationBTF.xml" id="ApplicationBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/contractAddEditBTF.xml" id="contractAddEditBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="true"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/retReleaseBTF.xml" id="retReleaseBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/ConsReportBTF.xml" id="ConsReportBTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/apps/uikit/TaskFlow/searchRetRelease.xml" id="searchRetRelease" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+</task-flow-registry>

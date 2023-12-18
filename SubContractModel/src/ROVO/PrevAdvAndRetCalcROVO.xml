@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PrevAdvAndRetCalcROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ROVO.PrevAdvAndRetCalcROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BV_HDR_ID"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="BV_VER"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="BV_APP_HDR_ID"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <SQLQuery>
+    <![CDATA[SELECT   NVL (SUM (NVL (NVL (cur_adv_rec_cert, cur_adv_rec_payappl), 0)), 0) prev_adv_rec,
+NVL (SUM (NVL (NVL (cur_ret_cert, cur_ret_payappl), 0)), 0) prev_ret
+  FROM   (  SELECT   cont.cont_header_id,
+                     cont.version,
+                     cont.intent,
+                     cont.contract_num,
+                     payappl.appl_header_id,
+                     payappl.application_number,
+                     payappl.cur_adv_rec cur_adv_rec_payappl,
+                     payappl.cur_ret cur_ret_payappl,
+                     cert.cert_header_id,
+                     cert.certification_number,
+                     cert.cur_adv_rec cur_adv_rec_cert,
+                     cert.cur_ret cur_ret_cert
+              FROM   xxsc_contract_headers cont,
+                     xxsc_pay_appl_headers payappl,
+                     xxsc_certification_headers cert
+             WHERE       1 = 1
+                     AND cont.intent = 'S'
+                     AND cont.cont_header_id = payappl.cont_header_id
+                     AND cont.version = payappl.version
+                     AND payappl.appl_header_id = cert.appl_header_id(+)
+          ORDER BY   cont.cont_header_id,
+                     cont.version,
+                     payappl.appl_header_id)
+ WHERE       1 = 1
+         AND cont_header_id = :BV_HDR_ID
+         AND version = :BV_VER
+         AND appl_header_id < :BV_APP_HDR_ID]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="PrevAdvRec"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="PREV_ADV_REC"
+    Expression="PREV_ADV_REC"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevRet"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PREV_RET"
+    Expression="PREV_RET"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="xxstgVendorsVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="xxstgVendorsEO.END_DATE_ACTIVE, 
+       xxstgVendorsEO.OBJECT_VERSION_NUMBER, 
+       xxstgVendorsEO.PARTY_ID, 
+       xxstgVendorsEO.ROWID, 
+       xxstgVendorsEO.SEGMENT1, 
+       xxstgVendorsEO.START_DATE_ACTIVE, 
+       xxstgVendorsEO.VENDOR_ID, 
+       xxstgVendorsEO.VENDOR_NAME, 
+       xxstgVendorsEO.VENDOR_TYPE_LOOKUP_CODE"
+  FromList="XXSTG_VENDORS xxstgVendorsEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="view.xxstgVendorsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="supplbasedReportROVO1"
+    ViewObjectName="ROVO.supplbasedReportROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_VendorName"
+    ListVOName="supplbasedReportROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VendorName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VendorName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VendorName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_vendorNameTrans"
+    ListVOName="supplbasedReportROVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_vendorNameTrans_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="vendorNameTrans"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="VendorId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VendorName"/>
+      <Item Value="VendorId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VendorName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="supplbasedReportROVOCriteria"/>
+  </ListBinding>
+  <EntityUsage
+    Name="xxstgVendorsEO"
+    Entity="entity.xxstgVendorsEO"/>
+  <ViewAttribute
+    Name="EndDateActive"
+    PrecisionRule="true"
+    EntityAttrName="EndDateActive"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="END_DATE_ACTIVE"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="PartyId"
+    PrecisionRule="true"
+    EntityAttrName="PartyId"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="PARTY_ID"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="ROWID"/>
+  <ViewAttribute
+    Name="Segment1"
+    PrecisionRule="true"
+    EntityAttrName="Segment1"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="SEGMENT1"/>
+  <ViewAttribute
+    Name="StartDateActive"
+    PrecisionRule="true"
+    EntityAttrName="StartDateActive"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="START_DATE_ACTIVE"/>
+  <ViewAttribute
+    Name="VendorId"
+    PrecisionRule="true"
+    EntityAttrName="VendorId"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="VENDOR_ID"/>
+  <ViewAttribute
+    Name="VendorName"
+    PrecisionRule="true"
+    EntityAttrName="VendorName"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="VENDOR_NAME"
+    LOVName="LOV_VendorName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.xxstgVendorsVO.VendorName_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VendorTypeLookupCode"
+    PrecisionRule="true"
+    EntityAttrName="VendorTypeLookupCode"
+    EntityUsage="xxstgVendorsEO"
+    AliasName="VENDOR_TYPE_LOOKUP_CODE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+  <ViewAttribute
+    Name="vendorNameTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_vendorNameTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="view.xxstgVendorsVO.vendorNameTrans_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>
